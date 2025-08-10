@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Muhamad Afifudin Yusup</title>
+
+  <!-- Tailwind (CDN untuk testing cepat; jika sudah build, hapus ini) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* sedikit styling bantu agar slide selalu ter-center */
+    .myPortfolio { padding-bottom: 2rem; }
+    .swiper-slide { display: flex; justify-content: center; align-items: flex-start; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Hero Section -->
+  <section id="hero" class="py-12">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl font-extrabold mb-4">Halo, saya Muhamad Afifudin Yusup</h1>
+        <p class="text-lg text-gray-700 mb-6">
+          Saya seorang developer dan IT specialist. Berikut contoh proyek dan pengalaman kerja saya.
+        </p>
+        <a href="/public/cv.pdf" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow">
+          Unduh CV
+        </a>
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <img src="/images/Logo_New_1.png" alt="Hero" class="w-full h-64 object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Deskripsi Profesional &amp; Pengalaman</h2>
+      <div class="prose max-w-none">
+        <h3>Saya memiliki pengalaman dalam :</h3>
+        <p>
+          Flutter, Node.js, Laravel, Next.js, Python Flask, DevOps (Docker, Nginx, Ngrok, Kafka) dan administrasi jaringan.
+          Berpengalaman mengembangkan aplikasi mobile dan web serta sistem backend yang modular.
+        </p>
+        <ul>
+          <li>Pengembang Flutter — Aplikasi My Qur'an</li>
+          <li>Backend Engineer — Kelontong Shop (Node.js, PostgreSQL)</li>
+          <li>DevOps &amp; IT Support — Instalasi jaringan dan troubleshooting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section (Swiper coverflow) -->
+  <section id="portfolio" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6 text-center">Portfolio</h2>
+
+      <div class="swiper myPortfolio">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide max-w-xs">
+            <a href="/portfolio/1" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
+              <img src="/images/Flutter1.png" alt="Project 1" class="w-full h-56 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold text-lg">Programming Mobile</h3>
+                <p class="text-sm text-gray-600">Deskripsi singkat Programming — teknologi: Flutter / Laravel / Boostrap.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide max-w-xs">
+            <a href="/portfolio/2" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
+              <img src="/images/ITSupport.png" alt="Project 2" class="w-full h-56 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold text-lg">IT Support</h3>
+                <p class="text-sm text-gray-600">Deskripsi singkat IT Support  — CCTV, Infra Server & Networking.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Slide 3 (opsional) -->
+          <div class="swiper-slide max-w-xs">
+            <a href="/portfolio/3" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
+              <img src="/images/DevOps.jpg" alt="Project 3" class="w-full h-56 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold text-lg">DevOps </h3>
+                <p class="text-sm text-gray-600">Deskripsi singkat proyek 3 — teknologi: Laravel / MySQL / Tailwind CSS.</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Tambah slide lain sesuai kebutuhan -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Form Kontak</h2>
+      <form action="/contact" method="post" class="max-w-xl bg-white/80 rounded-lg p-6 shadow-lg">
+        <label class="block mb-3">
+          <span>Nama</span>
+          <input required type="text" name="name" class="w-full mt-1 p-2 border rounded" placeholder="Nama Anda" />
+        </label>
+        <label class="block mb-3">
+          <span>Email</span>
+          <input required type="email" name="email" class="w-full mt-1 p-2 border rounded" placeholder="email@domain.com" />
+        </label>
+        <label class="block mb-3">
+          <span>Pesan</span>
+          <textarea required name="message" rows="5" class="w-full mt-1 p-2 border rounded" placeholder="Tulis pesan..."></textarea>
+        </label>
+        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Inisialisasi Swiper dengan penyesuaian jumlah slide -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides = document.querySelectorAll('.myPortfolio .swiper-slide');
+      const slidesCount = slides.length;
+
+      // Jika tidak ada slide, hentikan
+      if (slidesCount === 0) return;
+
+      // Konfigurasi dinamis
+      const isFew = slidesCount < 3; // < 3 => gunakan mode numeric slidesPerView
+      const swiperOptions = {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: isFew ? 1 : 'auto',
+        coverflowEffect: {
+          rotate: isFew ? 18 : 30,
+          stretch: 0,
+          depth: 140,
+          modifier: 1,
+          slideShadows: true,
+        },
+        loop: slidesCount > 1, // loop hanya jika ada minimal 2 slide
+        autoplay: slidesCount > 1 ? {
+          delay: 3000,
+          disableOnInteraction: false
+        } : false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        breakpoints: {
+          640: { slidesPerView: Math.min(1, slidesCount) },
+          768: { slidesPerView: Math.min(2, slidesCount) },
+          1024: { slidesPerView: Math.min(3, slidesCount) }
+        }
+      };
+
+      // Buat swiper
+      const mySwiper = new Swiper('.myPortfolio', swiperOptions);
+
+      // Jika cuma 1 slide, sembunyikan pagination (opsional)
+      if (slidesCount === 1) {
+        const pag = document.querySelector('.swiper-pagination');
+        if (pag) pag.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

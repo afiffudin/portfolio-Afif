@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title></title>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal (CDN) -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-white text-gray-900 transition-colors duration-200">
+  <header class="bg-gradient-to-r from-indigo-600 to-pink-500 text-white p-4 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <a href="/" class="font-bold text-xl">Afif</a>
+      <div class="flex items-center gap-4">
+        <a href="/#portfolio" class="hover:underline">Portfolio</a>
+        <a href="/#about" class="hover:underline">Tentang</a>
+        <a href="/#contact" class="hover:underline">Kontak</a>
+        <a href="/public/cv.pdf" class="px-3 py-2 bg-white text-indigo-600 rounded shadow hover:opacity-90" download>Download CV</a>
+        <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded bg-white/20">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <%- body %>
+  </main>
+
+  <footer class="text-center p-6 text-sm text-gray-600">
+    © <%= new Date().getFullYear() %> M.Afifudin Yusup — Portfolio
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

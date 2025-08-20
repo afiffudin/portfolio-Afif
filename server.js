@@ -16,6 +16,15 @@ app.set('view engine', 'ejs');
 app.use(expressLayouts);            // ← Aktifkan layout
 app.set('layout', 'layout');        // ← Default layout file
 
+app.get("/", (req, res) => {
+  res.render("index");  // halaman utama menampilkan hasil feedback
+});
+
+app.get("/feedback", (req, res) => {
+  res.render("feedback"); // halaman form feedback
+});
+
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));

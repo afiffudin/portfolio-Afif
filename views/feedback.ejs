@@ -1,0 +1,46 @@
+<section class="py-12 bg-gray-100">
+  <div class="container mx-auto max-w-xl">
+    <h2 class="text-2xl font-bold mb-6 text-center">Isi Feedback</h2>
+
+    <form id="feedbackForm" class="bg-white p-6 rounded-lg shadow-lg flex flex-col gap-4">
+      <label>
+        <span>Nama</span>
+        <input type="text" name="name" class="w-full border rounded p-2 mt-1" required>
+      </label>
+
+      <label>
+        <span>Divisi</span>
+        <input type="text" name="divisi" class="w-full border rounded p-2 mt-1" required>
+      </label>
+
+      <label>
+        <span>Dibantu untuk</span>
+        <select name="service" class="w-full border rounded p-2 mt-1" required>
+          <option value="">Pilih layanan...</option>
+          <option value="Support system">Support system</option>
+          <option value="Pengembangan web">Pengembangan web</option>
+          <option value="Pengembangan aplikasi">Pengembangan aplikasi</option>
+          <option value="DevOps">DevOps</option>
+          <option value="Deploy sistem to hosting">Deploy sistem to hosting</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Rating</span>
+        <div class="flex gap-2 mt-1">
+          <input type="radio" name="rating" value="1" required> 1
+          <input type="radio" name="rating" value="2"> 2
+          <input type="radio" name="rating" value="3"> 3
+          <input type="radio" name="rating" value="4"> 4
+          <input type="radio" name="rating" value="5"> 5
+        </div>
+      </label>
+
+      <button type="submit" class="bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
+        Kirim Penilaian
+      </button>
+    </form>
+  </div>
+</section>
+
+<script src="/js/feedback.js"></script>

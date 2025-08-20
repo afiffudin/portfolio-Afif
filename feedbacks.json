@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "ELIKA",
+    "divisi": "IT",
+    "service": "DevOps",
+    "rating": 5,
+    "keterangan": "Good"
+  }
+]

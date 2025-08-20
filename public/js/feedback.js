@@ -1,8 +1,18 @@
 const form = document.getElementById("feedbackForm");
 const feedbackMessage = document.getElementById("feedbackMessage");
 
+// Ambil feedback yang sudah pernah dikirim dari localStorage
+let hasSubmitted = localStorage.getItem("hasSubmitted") === "true";
+
+if (hasSubmitted) {
+  form.querySelector("button").disabled = true;
+  feedbackMessage.textContent = "Anda sudah memberikan penilaian. Terima kasih!";
+}
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  if (hasSubmitted) return; // jika sudah submit, tidak boleh lagi
 
   const data = new FormData(form);
   const feedback = Object.fromEntries(data.entries());
@@ -18,9 +28,15 @@ form.addEventListener("submit", async (e) => {
 
     if (res.ok && result.success) {
       feedbackMessage.textContent = "Terima kasih atas penilaian Anda!";
+      feedbackMessage.classList.remove("text-red-600");
+      feedbackMessage.classList.add("text-green-600");
       form.reset();
-      // update tampilan feedback langsung
       addFeedbackToPage(result.feedback);
+
+      // tandai user sudah submit
+      localStorage.setItem("hasSubmitted", "true");
+      hasSubmitted = true;
+      form.querySelector("button").disabled = true;
     } else {
       feedbackMessage.textContent = result.error || "Gagal mengirim feedback";
       feedbackMessage.classList.add("text-red-600");

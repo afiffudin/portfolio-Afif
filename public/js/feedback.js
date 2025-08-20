@@ -1,42 +1,48 @@
-let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
-
 const form = document.getElementById("feedbackForm");
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const feedback = {
-      name: data.get("name"),
-      divisi: data.get("divisi"),
-      service: data.get("service"),
-      rating: data.get("rating"),
-      keterangan: data.get("keterangan") // ✅ field baru
-    };
+const feedbackMessage = document.getElementById("feedbackMessage");
 
-    feedbacks.push(feedback);
-    localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    alert("Terima kasih atas penilaian Anda!");
-    form.reset();
-    updateFeedbackDisplay();
-  });
+  const data = new FormData(form);
+  const feedback = Object.fromEntries(data.entries());
+
+  try {
+    const res = await fetch("/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(feedback)
+    });
+
+    const result = await res.json();
+
+    if (res.ok && result.success) {
+      feedbackMessage.textContent = "Terima kasih atas penilaian Anda!";
+      form.reset();
+      // update tampilan feedback langsung
+      addFeedbackToPage(result.feedback);
+    } else {
+      feedbackMessage.textContent = result.error || "Gagal mengirim feedback";
+      feedbackMessage.classList.add("text-red-600");
+    }
+  } catch (err) {
+    console.error(err);
+    feedbackMessage.textContent = "Terjadi kesalahan server";
+    feedbackMessage.classList.add("text-red-600");
+  }
+});
+
+function addFeedbackToPage(fb) {
+  const feedbackList = document.getElementById("feedbackList");
+  if (!feedbackList) return;
+
+  const div = document.createElement("div");
+  div.className = "bg-white p-4 rounded shadow mb-4";
+  div.innerHTML = `
+    <p class="font-semibold">${fb.name} (${fb.divisi})</p>
+    <p>Dibantu untuk: <span class="font-medium">${fb.service}</span></p>
+    <p>Rating: ${"★".repeat(fb.rating)}${"☆".repeat(5 - fb.rating)}</p>
+    <p>Keterangan: ${fb.keterangan || "-"}</p>
+  `;
+  feedbackList.prepend(div);
 }
-
-function updateFeedbackDisplay() {
-  const section = document.getElementById("feedbackDisplay");
-  if (!section) return;
-
-  section.innerHTML =
-    `<h2 class="text-2xl font-bold mb-6 text-center">Testimoni & Penilaian User</h2>` +
-    feedbacks.map(fb => `
-      <div class="bg-white p-4 rounded shadow mb-4">
-        <p class="font-semibold">${fb.name} (${fb.divisi})</p>
-        <p>Dibantu untuk: <span class="font-medium">${fb.service}</span></p>
-        <p>Rating: ${"★".repeat(fb.rating)}${"☆".repeat(5 - fb.rating)}</p>
-        <p>Keterangan: ${fb.keterangan || "-"}</p>
-      </div>
-    `).join("");
-}
-
-// render pertama kali
-updateFeedbackDisplay();

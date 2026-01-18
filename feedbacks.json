@@ -5,5 +5,24 @@
     "service": "DevOps",
     "rating": 5,
     "keterangan": "Good"
+  },
+  {
+    "name": "Satria",
+    "divisi": "IT",
+    "service": "IT",
+    "rating": 5,
+    "keterangan": "keren"
+  },
+  {
+    "name": "Dwi",
+    "divisi": "IT",
+    "service": "Selama pendampingan berlangsung di rs, mas nya membantu dalam sisi support dan teknis terutama SIMRS"
+  },
+  {
+    "name": "EVI",
+    "divisi": "Rehab Medis",
+    "service": "Support system",
+    "rating": 5,
+    "keterangan": ""
   }
 ]

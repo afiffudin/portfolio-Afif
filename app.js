@@ -25,7 +25,7 @@ app.get('/portfolio/itsupport', (req, res) => {
   res.render('it-support');
 });
 
-app.get('/portfolio/programming-mobile', (req, res) =>{
+app.get('/programming-mobile', (req, res) =>{
   res.render('programming-mobile')
 } )
 // Routes

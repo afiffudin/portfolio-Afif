@@ -1,0 +1,56 @@
+<section class="wrap">
+  <a href="/#keahlian" class="back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke portfolio</a>
+
+  <div class="detail-head">
+    <div>
+      <h1><%= d.title %></h1>
+    </div>
+    <div>
+      <p class="lead"><%= d.lead %></p>
+      <% if (d.lead2) { %><p class="lead" style="margin-top:.8rem"><%= d.lead2 %></p><% } %>
+      <ul class="chips">
+        <% d.stack.forEach(s => { %><li><%= s %></li><% }) %>
+      </ul>
+      <a class="btn btn-primary" href="https://wa.me/6289638243059" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <%= d.cta %></a>
+    </div>
+  </div>
+
+  <% if (d.hero) { %>
+    <button class="shot" type="button" style="aspect-ratio:auto;max-height:34rem" data-full="<%= d.hero.src %>" data-alt="<%= d.hero.alt %>">
+      <img src="<%= d.hero.src %>" alt="<%= d.hero.alt %>" style="max-height:34rem;object-fit:contain" decoding="async">
+    </button>
+  <% } %>
+</section>
+
+<% if (d.points && d.points.length) { %>
+<section class="section" style="padding-block:clamp(2.5rem,5vw,4rem)">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem"><h2><%= d.pointsTitle %></h2></div>
+    <div class="points">
+      <% d.points.forEach(p => { %>
+        <div class="point"><h3><%= p.t %></h3><p><%= p.p %></p></div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (d.gallery && d.gallery.length) { %>
+<section class="section" style="padding-top:clamp(1rem,3vw,2rem)">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem"><h2><%= d.galleryTitle %></h2><p>Klik gambar untuk memperbesar.</p></div>
+    <div class="gallery<%= d.phones ? ' phones' : '' %>">
+      <% d.gallery.forEach((g, i) => { %>
+        <button class="shot" type="button" data-full="<%= g.src %>" data-alt="<%= g.alt %>">
+          <img src="<%= g.src %>" alt="<%= g.alt %>" loading="lazy" decoding="async">
+        </button>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<dialog id="lightbox" class="lightbox" aria-label="Pratinjau gambar">
+  <button class="icon-btn" type="button" data-close aria-label="Tutup pratinjau"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+  <img alt="" />
+</dialog>

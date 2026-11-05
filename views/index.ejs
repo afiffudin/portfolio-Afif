@@ -1,270 +1,181 @@
+<%
+  const works = [
+    { href: '/portfolio/programming-mobile', img: '/images/Flutter1.png', alt: 'Tampilan aplikasi mobile Flutter',
+      title: 'Programming Mobile',
+      text: 'Aplikasi Android dan iOS dengan Flutter, lengkap dengan koneksi ke database.',
+      stack: ['Flutter', 'Firebase', 'PostgreSQL', 'SQL Server'] },
+    { href: '/portfolio/web', img: '/images/web1.png', alt: 'Tampilan website hasil pengembangan',
+      title: 'Programmer Web',
+      text: 'Website dan backend dengan Laravel, Node.js, dan Flask (Python).',
+      stack: ['Laravel', 'Node.js', 'Flask', 'MySQL', 'PostgreSQL', 'SQL Server'] },
+    { href: '/portfolio/devops', img: '/images/docker1.png', alt: 'Terminal Docker saat menjalankan container',
+      title: 'DevOps',
+      text: 'Container aplikasi, database, dan jaringan di dalam Docker.',
+      stack: ['Docker', 'Docker Compose'] },
+    { href: '/portfolio/itsupport', img: '/images/IT-Support1.png', alt: 'Pemasangan server dan jaringan di lapangan',
+      title: 'IT Support & Networking',
+      text: 'Instalasi CCTV, infrastruktur server, dan jaringan untuk rumah sakit dan perusahaan.',
+      stack: ['CCTV', 'Server', 'Networking', 'SIMRS'] },
+    { href: '/portfolio/4', img: '/images/Jasa_freelance1.png', alt: 'Proses troubleshoot dan deploy aplikasi ke hosting',
+      title: 'Jasa Teknis: Support & Deploy ke Hosting',
+      text: 'Troubleshoot dan deploy aplikasi web ke hosting, termasuk aplikasi Flask.',
+      stack: ['Flask (Python)', 'cPanel', 'Database'] }
+  ];
+  const stack = ['Flutter', 'Firebase', 'Laravel', 'Node.js', 'Flask', 'Docker', 'PostgreSQL', 'MySQL', 'SQL Server', 'Cisco', 'Mikrotik', 'CCTV'];
+%>
 
-<!doctype html>
-<html lang="id">
-  <!-- <%- include('partials/navbar') %> -->
-  <head>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio — Muhamad Afifudin Yusup</title>
-
-  <!-- Tailwind (CDN untuk testing cepat; jika sudah build, hapus ini) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style>
-    /* sedikit styling bantu agar slide selalu ter-center */
-    .myPortfolio { padding-bottom: 2rem; }
-    .swiper-slide { display: flex; justify-content: center; align-items: flex-start; }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-<!-- Social Media Fixed Top-Left -->
-<div class="fixed top-4 left-4 flex flex-col gap-3 z-50">
-  <a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" class="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://wa.me/6289638243059" target="_blank" class="flex items-center justify-center w-10 h-10 bg-green-500 text-white rounded-full hover:bg-green-700 transition">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="https://github.com/afiffudin" target="_blank" class="flex items-center justify-center w-10 h-10 bg-gray-800 text-white rounded-full hover:bg-black transition">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://gitlab.com/afiffudin" target="_blank" class="flex items-center justify-center w-10 h-10 bg-red-600 text-white rounded-full hover:bg-red-800 transition">
-    <i class="fab fa-gitlab"></i>
-  </a>
-</div>
-
-  <!-- Hero Section -->
-  <section id="hero" class="py-12">
-    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
       <div>
-        <h1 class="text-4xl font-extrabold mb-4">Halo, saya Muhamad Afifudin Yusup</h1>
-        <p class="text-lg text-gray-700 mb-6">
-          Saya seorang developer dan IT specialist. Berikut contoh proyek dan pengalaman kerja saya.
+        <h1>Muhamad Afifudin Yusup</h1>
+        <p class="hero-role">Developer dan IT specialist</p>
+        <p class="hero-lead">
+          Saya membuat aplikasi mobile dan web, menjalankan sistem di Docker, serta memasang jaringan, server, dan CCTV
+          untuk rumah sakit dan perusahaan.
         </p>
-        <a href="CV_My Portofolio Afif_IT.pdf" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow" id="downloadCV">
-  Unduh CV
-</a>
-
-<script>
-  document.getElementById('downloadCV').addEventListener('click', function(e){
-    e.preventDefault();
-    const link = document.createElement('a');
-    link.href = 'CV_My Portofolio Afif_IT.pdf'; // path file
-    link.download = 'CV_My Portofolio Afif_IT.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-</script>
-
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/6289638243059" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp</a>
+          <a class="btn btn-ghost" href="/CV_My Portofolio Afif_IT.pdf" download="CV_My Portofolio Afif_IT.pdf"><i class="fas fa-download" aria-hidden="true"></i> Unduh CV</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://github.com/afiffudin" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+          <a href="https://gitlab.com/afiffudin" target="_blank" rel="noopener" aria-label="GitLab"><i class="fab fa-gitlab" aria-hidden="true"></i></a>
+        </div>
       </div>
-      <!-- Sosial Media dengan Logo -->
-      <div class="rounded-lg overflow-hidden shadow-lg">
-        <img src="/images/Logo_New_1.png" alt="Hero" class="w-80 h-39 object-cover" />
-      </div>
+
+      <!-- Patch panel: tiap port membuka satu bidang keahlian -->
+      <nav class="rack" aria-label="Bidang keahlian">
+        <div class="rack-bar">
+          <span>Pilih bidang keahlian</span>
+          <span class="rack-screws" aria-hidden="true"><i></i><i></i></span>
+        </div>
+        <div class="ports">
+          <a class="port" href="/portfolio/programming-mobile">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>Mobile</strong><span>Flutter, Firebase</span>
+          </a>
+          <a class="port" href="/portfolio/web">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>Web</strong><span>Laravel, Node.js, Flask</span>
+          </a>
+          <a class="port" href="/portfolio/devops">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>DevOps</strong><span>Docker</span>
+          </a>
+          <a class="port" href="/portfolio/itsupport">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>IT Support</strong><span>Jaringan, server, CCTV</span>
+          </a>
+        </div>
+      </nav>
     </div>
-  </section>
 
-  <!-- About Section -->
-  <section class="px-6 py-12 bg-gray-900 text-white">
-  <h2 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">
-    Deskripsi Profesional & Pengalaman
-  </h2>
-
-  <!-- Tempat teks animasi -->
-  <div id="typing-text" class="text-xl font-mono text-center h-24 text-cyan-400"></div>
+    <div class="stack-strip">
+      <ul aria-label="Teknologi yang dipakai">
+        <% stack.forEach(s => { %><li><%= s %></li><% }) %>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- Tambahkan GSAP + TextPlugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-<script>
-  gsap.registerPlugin(TextPlugin);
-
-  const texts = [
-    "💻 Berpengalaman dalam IT Support, Instalasi CCTV & Networking (Climping RJ45, Splicing Fiber Optic) dan konfigurasi menggunakan Cisco.",
-    "📱 Pengembangan Aplikasi Mobile (Flutter).",
-    "🐳 Membuat container App, DB, Networking di dalam Docker.",
-    "⚙️ Implementasi Sistem & Pengujian Sistem (SIMRS)."
-  ];
-
-  let tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-
-  texts.forEach((txt) => {
-    tl.to("#typing-text", { 
-      duration: 3, 
-      text: txt, 
-      ease: "none",
-      color: gsap.utils.random(["#22d3ee","#22c55e","#eab308","#ec4899"]) // random warna tiap teks
-    })
-    .to("#typing-text", { opacity: 0, duration: 0.8 }, "+=2") // tahan 2 detik, lalu fade out
-    .to("#typing-text", { opacity: 1, duration: 0.2 });       // fade in sebelum teks berikutnya
-  });
-</script>
-
-  <!-- Portfolio Section (Swiper coverflow) -->
-  <section id="portfolio" class="py-12">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6 text-center">Portfolio</h2>
-
-      <div class="swiper myPortfolio">
-        <div class="swiper-wrapper">
-
-          <!-- Slide 1 -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/programming-mobile" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/Flutter1.png" alt="Project 1" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">Programming Mobile</h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat Programming — teknologi: Flutter / firebase / Postgresql / Sqlserver.</p>
-              </div>
-            </a>
+<!-- ===== Keahlian / Portfolio ===== -->
+<section id="keahlian" class="section" style="padding-top:clamp(2rem,4vw,3rem)">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Keahlian dan proyek</h2>
+      <p>Pilih salah satu untuk melihat screenshot dan detail pekerjaannya.</p>
+    </div>
+    <div class="works">
+      <% works.forEach(w => { %>
+        <a class="work" href="<%= w.href %>">
+          <div class="work-img"><img src="<%= w.img %>" alt="<%= w.alt %>" loading="lazy" decoding="async" /></div>
+          <div>
+            <h3><%= w.title %></h3>
+            <p><%= w.text %></p>
+            <ul class="chips">
+              <% w.stack.forEach(s => { %><li><%= s %></li><% }) %>
+            </ul>
           </div>
+          <span class="work-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
 
-          <!-- Slide 2 -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/itsupport" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/ITSupport.png" alt="Project 2" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">IT Support</h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat IT Support  — CCTV, Infra Server & Networking.</p>
-              </div>
-            </a>
-          </div>
-
-          <!-- Slide 3 (opsional) -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/devops" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/DevOps.jpg" alt="Project 3" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">DevOps </h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat proyek 3 — teknologi: Docker Membuat Container APP | Databases</p>
-              </div>
-            </a>
-          </div>
- <!-- Slide 4 (opsional) -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/4" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/Jasa_freelance.jpeg" alt="Project 3" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">Jasa Teknis ( Support & Deploy To Host ) </h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat Freelance — teknologi: Flask Framework Python | Databases</p>
-              </div>
-            </a>
-          </div>
-           <!-- Slide 4 (opsional) --> 
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/web" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/Jasa_freelance.jpeg" alt="Project 3" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">Programmer Web</h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat — teknologi:Larave | NodeJs | Flask Framework Python | Databases Mysql, Postgressql, Sqlserver</p>
-              </div>
-            </a>
-          </div>
-          <!-- Tambah slide lain sesuai kebutuhan -->
-        </div>
-
-        <!-- Pagination -->
-        <div class="swiper-pagination mt-4"></div>
+<!-- ===== Pengalaman ===== -->
+<section id="pengalaman" class="section about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Deskripsi profesional dan pengalaman</h2>
+    </div>
+    <dl class="facts">
+      <div>
+        <dt>IT Support, CCTV, dan jaringan</dt>
+        <dd>Berpengalaman dalam IT Support, instalasi CCTV, dan networking (crimping RJ45, splicing fiber optic) serta konfigurasi menggunakan Cisco.</dd>
       </div>
+      <div>
+        <dt>Aplikasi mobile</dt>
+        <dd>Pengembangan aplikasi mobile dengan Flutter.</dd>
+      </div>
+      <div>
+        <dt>Docker</dt>
+        <dd>Membuat container aplikasi, database, dan jaringan di dalam Docker.</dd>
+      </div>
+      <div>
+        <dt>SIMRS</dt>
+        <dd>Implementasi sistem dan pengujian sistem (SIMRS).</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== Testimoni (diisi oleh /js/feedback-display.js) ===== -->
+<section id="testimoni" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Testimoni dan penilaian</h2>
+      <p>Penilaian dari rekan kerja dan klien yang pernah saya bantu.</p>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-12">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Form Kontak</h2>
-      <form action="/contact" method="post" class="max-w-xl bg-white/80 rounded-lg p-6 shadow-lg">
-        <label class="block mb-3">
-          <span>Nama</span>
-          <input required type="text" name="name" class="w-full mt-1 p-2 border rounded" placeholder="Nama Anda" />
-        </label>
-        <label class="block mb-3">
-          <span>Email</span>
-          <input required type="email" name="email" class="w-full mt-1 p-2 border rounded" placeholder="email@domain.com" />
-        </label>
-        <label class="block mb-3">
-          <span>Pesan</span>
-          <textarea required name="message" rows="5" class="w-full mt-1 p-2 border rounded" placeholder="Tulis pesan..."></textarea>
-        </label>
-        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded">Kirim Pesan</button>
-      </form>
+    <div id="feedbackList" class="quotes">
+      <p class="empty">Memuat testimoni…</p>
     </div>
-  </section>
-<!-- Feedback Display Section -->
-  <section id="feedbackDisplay" class="py-12 px-6 bg-gray-50 container mx-auto max-w-3xl">
-    <h2 class="text-2xl font-bold mb-6 text-center">Testimoni & Penilaian User</h2>
-    <div id="feedbackList" class="space-y-4">
-      <!-- feedback akan diisi via JS -->
+    <div class="section-cta">
+      <a href="/feedback" class="btn btn-ghost">Tulis penilaian</a>
     </div>
-    <div class="text-center mt-6">
-      <a href="/feedback" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">
-        Beri Feedback
-      </a>
+  </div>
+</section>
+
+<!-- ===== Kontak ===== -->
+<section id="contact" class="section contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Punya proyek atau butuh bantuan teknis?</h2>
+      <p class="lead">Kirim pesan lewat form ini, atau hubungi langsung lewat WhatsApp untuk respons yang lebih cepat.</p>
+      <ul class="contact-links">
+        <li><a href="https://wa.me/62895629273504" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/afiffudin" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+        <li><a href="https://gitlab.com/afiffudin" target="_blank" rel="noopener"><i class="fab fa-gitlab" aria-hidden="true"></i> GitLab</a></li>
+      </ul>
     </div>
-  </section>
-  <script src="/js/feedback-display.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <form action="/contact" method="post" class="form">
+      <label class="field"><span>Nama</span>
+        <input required type="text" name="name" class="input" placeholder="Nama Anda" autocomplete="name" />
+      </label>
+      <label class="field"><span>Email</span>
+        <input required type="email" name="email" class="input" placeholder="email@domain.com" autocomplete="email" />
+      </label>
+      <label class="field"><span>Pesan</span>
+        <textarea required name="message" rows="5" class="input" placeholder="Ceritakan kebutuhan Anda"></textarea>
+      </label>
+      <div><button type="submit" class="btn btn-primary">Kirim pesan</button></div>
+    </form>
+  </div>
+</section>
 
-  
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- Inisialisasi Swiper dengan penyesuaian jumlah slide -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const slides = document.querySelectorAll('.myPortfolio .swiper-slide');
-      const slidesCount = slides.length;
-
-      // Jika tidak ada slide, hentikan
-      if (slidesCount === 0) return;
-
-      // Konfigurasi dinamis
-      const isFew = slidesCount < 3; // < 3 => gunakan mode numeric slidesPerView
-      const swiperOptions = {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: isFew ? 1 : 'auto',
-        coverflowEffect: {
-          rotate: isFew ? 18 : 30,
-          stretch: 0,
-          depth: 140,
-          modifier: 1,
-          slideShadows: true,
-        },
-        loop: slidesCount > 1, // loop hanya jika ada minimal 2 slide
-        autoplay: slidesCount > 1 ? {
-          delay: 3000,
-          disableOnInteraction: false
-        } : false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        breakpoints: {
-          640: { slidesPerView: Math.min(1, slidesCount) },
-          768: { slidesPerView: Math.min(2, slidesCount) },
-          1024: { slidesPerView: Math.min(3, slidesCount) }
-        }
-      };
-
-      // Buat swiper
-      const mySwiper = new Swiper('.myPortfolio', swiperOptions);
-
-      // Jika cuma 1 slide, sembunyikan pagination (opsional)
-      if (slidesCount === 1) {
-        const pag = document.querySelector('.swiper-pagination');
-        if (pag) pag.style.display = 'none';
-      }
-    });
-  </script>
-</body>
-</html>
+<script src="/js/feedback-display.js"></script>

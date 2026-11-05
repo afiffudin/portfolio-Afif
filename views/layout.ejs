@@ -3,41 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title></title>
+  <title><%= typeof title !== 'undefined' && title ? title + ' — ' : '' %>Muhamad Afifudin Yusup · Developer & IT Specialist</title>
+  <meta name="description" content="Portfolio Muhamad Afifudin Yusup: pengembangan aplikasi mobile (Flutter), web (Laravel, Node.js), DevOps (Docker), serta IT support, jaringan, dan CCTV." />
 
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Terapkan tema sebelum halaman tampil agar tidak berkedip -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 
-  <!-- ScrollReveal (CDN) -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body class="bg-white text-gray-900 transition-colors duration-200">
-  <header class="bg-gradient-to-r from-indigo-600 to-pink-500 text-white p-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <a href="/" class="font-bold text-xl">Afif</a>
-      <div class="flex items-center gap-4">
-        <a href="/#portfolio" class="hover:underline">Portfolio</a>
-        <a href="/#about" class="hover:underline">Tentang</a>
-        <a href="/#contact" class="hover:underline">Kontak</a>
-     `  <a href="/feedback" class="hover:underline">Feedback aku</a>
-        <a href="/public/M_Afiffudin_Yusup.pdf" class="px-3 py-2 bg-white text-indigo-600 rounded shadow hover:opacity-90" download>Download CV</a>
-        <button id="themeToggle" aria-label="Toggle dark mode" class="p-2 rounded bg-white/20">🌓</button>
-      </div>
-    </div>
-  </header>
+<body>
+  <a class="skip" href="#main">Langsung ke konten</a>
+  <%- include('partials/navbar') %>
 
-  <main class="container mx-auto p-6">
+  <main id="main">
     <%- body %>
   </main>
 
-  <footer class="text-center p-6 text-sm text-gray-600">
-    © <%= new Date().getFullYear() %> M.Afifudin Yusup — Portfolio
-  </footer>
+  <%- include('partials/footer') %>
 
   <script src="/js/main.js"></script>
-  <script src="/js/feedback.js"></script>
-
 </body>
 </html>

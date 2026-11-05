@@ -1,53 +1,45 @@
-<section class="py-12 bg-gray-100">
-  <div class="container mx-auto max-w-xl">
-    <h2 class="text-2xl font-bold mb-6 text-center">Isi Feedback</h2>
+<section class="wrap form-page">
+  <h1>Isi feedback</h1>
+  <p class="lead">Ceritakan pengalaman Anda saat saya membantu. Penilaian akan tampil di halaman utama.</p>
 
-    <form id="feedbackForm" class="bg-white p-6 rounded-lg shadow-lg flex flex-col gap-4">
-      <label>
-        <span>Nama</span>
-        <input type="text" name="name" class="w-full border rounded p-2 mt-1" required>
-      </label>
+  <form id="feedbackForm" class="form form-card">
+    <label class="field"><span>Nama</span>
+      <input type="text" name="name" class="input" autocomplete="name" required>
+    </label>
 
-      <label>
-        <span>Divisi</span>
-        <input type="text" name="divisi" class="w-full border rounded p-2 mt-1" required>
-      </label>
+    <label class="field"><span>Divisi</span>
+      <input type="text" name="divisi" class="input" required>
+    </label>
 
-      <label>
-        <span>Dibantu untuk</span>
-        <select name="service" class="w-full border rounded p-2 mt-1" required>
-          <option value="">Pilih layanan...</option>
-          <option value="Support system">Support system</option>
-          <option value="Pengembangan web">Pengembangan web</option>
-          <option value="Pengembangan aplikasi">Pengembangan aplikasi</option>
-          <option value="DevOps">DevOps</option>
-          <option value="Deploy sistem to hosting">Deploy sistem to hosting</option>
-        </select>
-      </label>
+    <label class="field"><span>Dibantu untuk</span>
+      <select name="service" class="input" required>
+        <option value="">Pilih layanan…</option>
+        <option value="Support system">Support system</option>
+        <option value="Pengembangan web">Pengembangan web</option>
+        <option value="Pengembangan aplikasi">Pengembangan aplikasi</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Deploy sistem to hosting">Deploy sistem to hosting</option>
+      </select>
+    </label>
 
-      <label>
-        <span>Rating</span>
-        <div class="flex gap-2 mt-1">
-          <input type="radio" name="rating" value="1" required> 1
-          <input type="radio" name="rating" value="2"> 2
-          <input type="radio" name="rating" value="3"> 3
-          <input type="radio" name="rating" value="4"> 4
-          <input type="radio" name="rating" value="5"> 5
-        </div>
-      </label>
+    <fieldset class="field">
+      <legend class="legend">Rating</legend>
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 bintang" aria-label="5 bintang">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 bintang" aria-label="4 bintang">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 bintang" aria-label="3 bintang">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 bintang" aria-label="2 bintang">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 bintang" aria-label="1 bintang">★</label>
+      </div>
+    </fieldset>
 
-      <label>
-        <span>Keterangan</span>
-        <textarea name="keterangan" class="w-full border rounded p-2 mt-1" placeholder="Tambahkan catatan/komentar..."></textarea>
-      </label>  
+    <label class="field"><span>Keterangan</span>
+      <textarea name="keterangan" class="input" placeholder="Tambahkan catatan atau komentar"></textarea>
+    </label>
 
-      <button type="submit" class="bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
-        Kirim Penilaian
-      </button>
-    </form>
-
-    <div id="feedbackMessage" class="mt-4 text-green-600 font-semibold"></div>
-  </div>
+    <div><button type="submit" class="btn btn-primary">Kirim penilaian</button></div>
+    <div id="feedbackMessage" class="status" role="status" aria-live="polite"></div>
+  </form>
 </section>
 
 <script src="/js/feedback.js"></script>

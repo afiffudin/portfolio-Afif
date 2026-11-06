@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+// Route untuk halaman detail Programmer Web
 // Routes
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home' });

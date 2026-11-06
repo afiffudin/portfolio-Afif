@@ -1,0 +1,21 @@
+<%
+  const shots = ['mobile-dev1.jpeg', 'Mobile-Kes-2.png', 'mobile-dev2.jpeg', 'mobile-dev3.jpeg', 'mobile-dev4.jpeg',
+                 'app-islami1.jpeg', 'app-islami2.jpeg', 'app-islami3.jpeg', 'app-islami4.jpeg',
+                 'app-islami5.jpeg', 'app-islami6.jpeg', 'app-islami7.jpeg', 'app-islami8.jpeg'];
+  const d = {
+    title: 'Mobile Developer',
+    lead: 'Mengembangkan aplikasi mobile dengan Flutter, dari antarmuka hingga integrasi API.',
+    stack: ['Flutter', 'Integrasi API'],
+    cta: 'Konsultasi aplikasi',
+    hero: { src: '/images/Flutter1.png', alt: 'Aplikasi mobile Flutter dengan fitur tuntunan sholat dan Al-Quran' },
+    pointsTitle: 'Proyek dan kemampuan',
+    points: [
+      { t: 'My Religi Mobile Application', p: 'Aplikasi Al-Qur\'an digital dengan fitur tafsir dan bookmark.' },
+      { t: 'Integrasi API', p: 'Menghubungkan aplikasi mobile dengan layanan backend melalui API.' }
+    ],
+    galleryTitle: 'Tampilan aplikasi',
+    phones: true,
+    gallery: shots.map((f, i) => ({ src: '/images/' + f, alt: 'Tampilan aplikasi mobile ' + (i + 1) }))
+  };
+%>
+<%- include('partials/detail', { d }) %>

@@ -1,260 +1,264 @@
+<%
+  const works = [
+    { href: '/portfolio/programming-mobile', img: '/images/Flutter1.png', alt: 'Tampilan aplikasi mobile Flutter',
+      title: 'Programming Mobile',
+      text: 'Aplikasi mobile dengan Flutter, termasuk My Religi: aplikasi Al-Qur\'an digital dengan tafsir dan bookmark.',
+      stack: ['Flutter', 'Integrasi API'] },
+    { href: '/portfolio/web', current: true, img: '/images/web1.png', alt: 'Tampilan website hasil pengembangan',
+      title: 'Programmer Web',
+      text: 'Dashboard dan aplikasi web dengan Vue.js, Node.js, PHP, dan Flask, termasuk integrasi API dan optimasi database.',
+      stack: ['Java(VAADIN)', 'ASP.NET', 'Vue.js', 'Node.js', 'PHP', 'Flask', 'PostgreSQL', 'MySQL'] },
+    { href: '/portfolio/devops', current: true, img: '/images/docker1.png', alt: 'Terminal Docker saat menjalankan container',
+      title: 'DevOps dan Deployment',
+      text: 'Environment deployment berbasis Docker dengan GitLab Container Registry, Caddy dan Nginx, di server AWS dan Alibaba Cloud.',
+      stack: ['Docker', 'GitLab Registry', 'Caddy', 'Nginx', 'AWS', 'Alibaba Cloud'] },
+    { href: '/portfolio/itsupport', img: '/images/IT-Support1.png', alt: 'Pemasangan server dan jaringan di lapangan',
+      title: 'IT Support, Jaringan, dan SIMRS',
+      text: 'Implementasi SIMRS, dukungan IT, jaringan, dan CCTV di rumah sakit serta lingkungan operasional perusahaan.',
+      stack: ['SIMRS', 'MikroTik', 'Cisco', 'CCTV', 'Windows Server'] },
+    { href: '/portfolio/4', img: '/images/Jasa_freelance1.png', alt: 'Proses troubleshoot dan deploy aplikasi ke hosting',
+      title: 'Jasa Teknis: Support dan Deploy ke Hosting',
+      text: 'Troubleshoot dan deploy aplikasi web ke hosting, termasuk aplikasi Flask.',
+      stack: ['Flask (Python)', 'cPanel'] }
+  ];
+  const stack = ['Flutter', 'Vue.js', 'Node.js', 'PHP', 'Python', 'Flask', 'Java', 'Docker', 'Nginx', 'Caddy', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'MikroTik', 'Cisco', 'Windows Server', 'Active Directory', 'AWS', 'Alibaba Cloud', 'Prometheus', 'Grafana', 'Kafka', 'GitLab'];
 
-<!doctype html>
-<html lang="id">
-  <!-- <%- include('partials/navbar') %> -->
-  <head>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio — Muhamad Afifudin Yusup</title>
-
-  <!-- Tailwind (CDN untuk testing cepat; jika sudah build, hapus ini) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style>
-    /* sedikit styling bantu agar slide selalu ter-center */
-    .myPortfolio { padding-bottom: 2rem; }
-    .swiper-slide { display: flex; justify-content: center; align-items: flex-start; }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-<!-- Social Media Fixed Top-Left -->
-<div class="fixed top-4 left-4 flex flex-col gap-3 z-50">
-  <a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" class="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://wa.me/6289638243059" target="_blank" class="flex items-center justify-center w-10 h-10 bg-green-500 text-white rounded-full hover:bg-green-700 transition">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="https://github.com/afiffudin" target="_blank" class="flex items-center justify-center w-10 h-10 bg-gray-800 text-white rounded-full hover:bg-black transition">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://gitlab.com/afiffudin" target="_blank" class="flex items-center justify-center w-10 h-10 bg-red-600 text-white rounded-full hover:bg-red-800 transition">
-    <i class="fab fa-gitlab"></i>
-  </a>
-</div>
-
-  <!-- Hero Section -->
-  <section id="hero" class="py-12">
-    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h1 class="text-4xl font-extrabold mb-4">Halo, saya Muhamad Afifudin Yusup</h1>
-        <p class="text-lg text-gray-700 mb-6">
-          Saya seorang developer dan IT specialist. Berikut contoh proyek dan pengalaman kerja saya.
-        </p>
-        <a href="M_Afiffudin_Yusup.pdf" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow" id="downloadCV">
-  Unduh CV
-</a>
-
-<script>
-  document.getElementById('downloadCV').addEventListener('click', function(e){
-    e.preventDefault();
-    const link = document.createElement('a');
-    link.href = 'M_Afifudin Yusup_CCNA.pdf'; // path file
-    link.download = 'M_Afifudin Yusup_CCNA.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-</script>
-
-      </div>
-      <!-- Sosial Media dengan Logo -->
-      <div class="rounded-lg overflow-hidden shadow-lg">
-        <img src="/images/Logo_New_1.png" alt="Hero" class="w-80 h-39 object-cover" />
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="px-6 py-12 bg-gray-900 text-white">
-  <h2 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">
-    Deskripsi Profesional & Pengalaman
-  </h2>
-
-  <!-- Tempat teks animasi -->
-  <div id="typing-text" class="text-xl font-mono text-center h-24 text-cyan-400"></div>
-</section>
-
-<!-- Tambahkan GSAP + TextPlugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-<script>
-  gsap.registerPlugin(TextPlugin);
-
-  const texts = [
-    "💻 Berpengalaman dalam IT Support, Instalasi CCTV & Networking (Climping RJ45, Splicing Fiber Optic) dan konfigurasi menggunakan Cisco.",
-    "📱 Pengembangan Aplikasi Mobile (Flutter).",
-    "🐳 Membuat container App, DB, Networking di dalam Docker.",
-    "⚙️ Implementasi Sistem & Pengujian Sistem (SIMRS)."
+  const jobs = [
+    { role: 'IT Support & Web Developer', org: 'PT. Ambil Gaji Duluan', place: 'Jakarta Pusat', period: 'Jan 2026 – Sekarang', current: true, points: [
+      'Memberikan dukungan operasional dan troubleshooting untuk aplikasi HRIS dan Earned Wage Access (EWA).',
+      'Mengembangkan dan mengintegrasikan komponen dashboard Vue.js untuk mendukung alur kerja HRIS.',
+      'Mengonfigurasi environment deployment aplikasi dengan Docker dan web server Caddy.',
+      'Menjaga keandalan dan performa database lewat optimasi query SQL, indexing, backup, dan rollback.',
+      'Menyelidiki masalah aplikasi, server, dan laporan pengguna, lalu mengoordinasikan penyelesaiannya.'
+    ] },
+    { role: 'Technical Support, Proyek CCTV (berbasis proyek)', org: 'PT. Sinergi Teknologi Internusa', place: 'Jakarta Barat', period: 'Sep 2025 – Des 2025', points: [
+      'Melakukan proof-of-concept (POC) di lokasi klien, termasuk instalasi CCTV dan validasi teknis.',
+      'Memberikan dukungan teknis selama dan sesudah implementasi POC.',
+      'Mengonfigurasi fitur AI kamera dan pengaturan perangkat sesuai kebutuhan klien.',
+      'Mengonfigurasi dan mendukung segmen jaringan khusus untuk deployment CCTV.'
+    ] },
+    { role: 'IT Implementation Specialist', org: 'PT. Daya Medika Pratama', place: 'Jakarta Pusat', period: 'Okt 2024 – Agu 2025', points: [
+      'Mengimplementasikan, menguji, dan mendokumentasikan Sistem Informasi Manajemen Rumah Sakit (SIMRS).',
+      'Memberikan dukungan teknis dan pendampingan aplikasi di lokasi selama implementasi dan operasional sistem.',
+      'Menyusun panduan pengguna dan SOP agar penggunaan sistem konsisten.',
+      'Memberi bimbingan dan pelatihan kepada staf operasional rumah sakit.'
+    ] },
+    { role: 'IT Support & QA Tester Specialist', org: 'PT. Dinamika Digital Semesta', place: 'Tangerang', period: 'Feb 2023 – Sep 2024', points: [
+      'Mendukung infrastruktur IT, CCTV, perangkat jaringan, hardware, dan software di lingkungan operasional.',
+      'Mengimplementasikan, menguji, dan mendokumentasikan SIMRS.',
+      'Mengelola database PostgreSQL: SQL join, optimasi query, indexing, dan backup.',
+      'Melakukan QA testing SIMRS, meninjau alur bisnis, mendokumentasikan temuan, dan mendukung perbaikan sistem.',
+      'Mengonfigurasi perangkat jaringan, IP addressing, access point, aturan firewall, dan sertifikat SSL.',
+      'Menarik kabel dan troubleshooting infrastruktur, termasuk terminasi RJ45 dan splicing fiber optic.',
+      'Mengonfigurasi container aplikasi Docker dan memantau kondisi jaringan serta server.'
+    ] },
+    { role: 'IT Staff & System Administrator', org: 'Rumah Sakit Juwita', place: 'Bekasi', period: 'Jan 2021 – Jan 2023', points: [
+      'Memelihara sistem internal rumah sakit dan infrastruktur Network Attached Storage (NAS).',
+      'Mengimplementasikan, menguji, dan mendokumentasikan SIMRS.',
+      'Mendukung keamanan server, pemantauan akses IP, dan pencegahan malware.',
+      'Memelihara dan troubleshooting server, PC desktop, laptop, dan printer.',
+      'Mengelola backup storage otomatis dan memberi dukungan teknis harian kepada pengguna rumah sakit.',
+      'Mengonfigurasi IP addressing, router, access point, dan kabel jaringan sesuai kebutuhan operasional.'
+    ] }
   ];
 
-  let tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+  const skills = [
+    ['IT Operations & Support', 'Troubleshooting hardware dan software, dukungan pengguna, pemeliharaan server, backup dan recovery.'],
+    ['Networking & Security', 'MikroTik, Cisco, LAN/WAN, VLAN, IP addressing, konfigurasi router dan AP, firewall, SSL, splicing fiber optic.'],
+    ['Systems & Infrastructure', 'Windows Server, Alibaba Cloud, AWS, Active Directory, NAS, Docker, Nginx, Caddy, dukungan environment deployment.'],
+    ['Database Administration', 'Sql Server, PostgreSQL, MySQL, MongoDB, Redis, SQL join, indexing, optimasi query, backup dan rollback.'],
+    ['Application & Development', 'JavaScript, Java, PHP, Vue.js, Node.js, Python, Flask, Flutter, pengembangan aplikasi web dan mobile, integrasi API.'],
+    ['Implementation & Quality', 'Implementasi SIMRS dan HRIS, QA testing, review proses bisnis, dokumentasi SOP, pelatihan pengguna.'],
+    ['Monitoring & Tools', 'Prometheus, Grafana, Kafka, Git, GitHub, GitLab.']
+  ];
 
-  texts.forEach((txt) => {
-    tl.to("#typing-text", { 
-      duration: 3, 
-      text: txt, 
-      ease: "none",
-      color: gsap.utils.random(["#22d3ee","#22c55e","#eab308","#ec4899"]) // random warna tiap teks
-    })
-    .to("#typing-text", { opacity: 0, duration: 0.8 }, "+=2") // tahan 2 detik, lalu fade out
-    .to("#typing-text", { opacity: 1, duration: 0.2 });       // fade in sebelum teks berikutnya
-  });
-</script>
+  const edu = [
+    ['S1 Sistem Informasi', 'Universitas Terbuka, 2022 – 2026'],
+    ['SMK Rekayasa Perangkat Lunak', 'SMK PGRI 1 Depok, 2016 – 2019'],
+    ['Sertifikasi', 'Software Engineer Competency Certification, PT. Sintekindo'],
+    ['Bahasa', 'Indonesia (bahasa ibu), Inggris (kemampuan kerja teknis)']
+  ];
+%>
 
-  <!-- Portfolio Section (Swiper coverflow) -->
-  <section id="portfolio" class="py-12">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6 text-center">Portfolio</h2>
-
-      <div class="swiper myPortfolio">
-        <div class="swiper-wrapper">
-
-          <!-- Slide 1 -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/1" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/Flutter1.png" alt="Project 1" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">Programming Mobile</h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat Programming — teknologi: Flutter / Laravel / Boostrap.</p>
-              </div>
-            </a>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/2" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/ITSupport.png" alt="Project 2" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">IT Support</h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat IT Support  — CCTV, Infra Server & Networking.</p>
-              </div>
-            </a>
-          </div>
-
-          <!-- Slide 3 (opsional) -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/3" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/DevOps.jpg" alt="Project 3" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">DevOps </h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat proyek 3 — teknologi: Docker Membuat Container APP | Databases</p>
-              </div>
-            </a>
-          </div>
- <!-- Slide 4 (opsional) -->
-          <div class="swiper-slide max-w-xs">
-            <a href="/portfolio/4" class="block bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition">
-              <img src="/images/Jasa_freelance.jpeg" alt="Project 3" class="w-full h-56 object-cover" />
-              <div class="p-4">
-                <h3 class="font-semibold text-lg">Jasa Teknis ( Support & Deploy To Host ) </h3>
-                <p class="text-sm text-gray-600">Deskripsi singkat Freelance — teknologi: Flask Framework Python | Databases</p>
-              </div>
-            </a>
-          </div>
-          <!-- Tambah slide lain sesuai kebutuhan -->
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="split"><span class="w"><span style="--i:0">Muhamad</span></span> <span class="w"><span style="--i:1">Afifudin</span></span> <span class="w"><span style="--i:2">Yusup</span></span></h1>
+        <p class="hero-role">Saya seorang <span class="typed" data-words='["IT Network Support","IT Support &amp; Web Developer","IT Implementation Specialist","System Administrator","QA Tester"]'>IT Support &amp; Web Developer</span><span class="caret" aria-hidden="true"></span></p>
+        <p class="hero-lead">
+          IT Systems &amp; Infrastructure Specialist di Depok dengan pengalaman 4+ tahun: mendukung aplikasi enterprise
+          (HRIS, SIMRS), mengelola infrastruktur dan jaringan, serta membangun solusi web dan mobile.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-pulse" href="https://wa.me/62895629273504" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp</a>
+          <a class="btn btn-ghost" href="/CV_Muhamad_Afifudin_IT.pdf" download><i class="fas fa-download" aria-hidden="true"></i> Unduh CV</a>
         </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/fyf-dev-b8b05a15a/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://github.com/afiffudin" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+          <a href="https://gitlab.com/afiffudin" target="_blank" rel="noopener" aria-label="GitLab"><i class="fab fa-gitlab" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
-        <!-- Pagination -->
-        <div class="swiper-pagination mt-4"></div>
+      <!-- Patch panel: tiap port membuka satu bidang keahlian -->
+      <nav class="rack" aria-label="Bidang keahlian">
+        <div class="rack-bar">
+          <span>Pilih bidang keahlian</span>
+          <span class="rack-screws" aria-hidden="true"><i></i><i></i></span>
+        </div>
+        <div class="ports">
+          <a class="port" href="/portfolio/programming-mobile">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>Mobile</strong><span>Flutter</span>
+          </a>
+          <a class="port" href="/portfolio/web">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>Web</strong><span>Java, ASP.NET (VB.NET), Vue.js, Node.js, PHP, Flask</span>
+          </a>
+          <a class="port" href="/portfolio/devops">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>DevOps</strong><span>Alibaba Cloud, AWS, Docker, Caddy, Nginx</span>
+          </a>
+          <a class="port" href="/portfolio/itsupport">
+            <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
+            <strong>IT Support</strong><span>HRIS, SIMRS, jaringan, CCTV</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="stack-strip" data-reveal>
+      <div class="marquee">
+        <ul aria-label="Teknologi yang dipakai">
+          <% stack.forEach(s => { %><li><%= s %></li><% }) %>
+        </ul>
+        <ul aria-hidden="true">
+          <% stack.forEach(s => { %><li><%= s %></li><% }) %>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-12">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Form Kontak</h2>
-      <form action="/contact" method="post" class="max-w-xl bg-white/80 rounded-lg p-6 shadow-lg">
-        <label class="block mb-3">
-          <span>Nama</span>
-          <input required type="text" name="name" class="w-full mt-1 p-2 border rounded" placeholder="Nama Anda" />
-        </label>
-        <label class="block mb-3">
-          <span>Email</span>
-          <input required type="email" name="email" class="w-full mt-1 p-2 border rounded" placeholder="email@domain.com" />
-        </label>
-        <label class="block mb-3">
-          <span>Pesan</span>
-          <textarea required name="message" rows="5" class="w-full mt-1 p-2 border rounded" placeholder="Tulis pesan..."></textarea>
-        </label>
-        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded">Kirim Pesan</button>
-      </form>
+<!-- ===== Keahlian / Portfolio ===== -->
+<section id="keahlian" class="section" style="padding-top:clamp(2rem,4vw,3rem)">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2>Keahlian dan proyek</h2>
+      <p>Pilih salah satu untuk melihat screenshot dan detail pekerjaannya.</p>
     </div>
-  </section>
-<!-- Feedback Display Section -->
-  <section id="feedbackDisplay" class="py-12 px-6 bg-gray-50 container mx-auto max-w-3xl">
-    <h2 class="text-2xl font-bold mb-6 text-center">Testimoni & Penilaian User</h2>
-    <div id="feedbackList" class="space-y-4">
-      <!-- feedback akan diisi via JS -->
+    <div class="works">
+      <% works.forEach((w, i) => { %>
+  <a class="work<%= w.current ? ' is-current' : '' %>" href="<%= w.href %>" data-reveal style="--d:<%= i * 70 %>ms">
+    <div class="work-img"><img src="<%= w.img %>" alt="<%= w.alt %>" loading="lazy" decoding="async" /></div>
+    <div>
+      <% if (w.current) { %><p class="now work-now">Pekerjaan saat ini</p><% } %>
+      <h3><%= w.title %></h3>
+      <p><%= w.text %></p>
+      <ul class="chips">
+        <% w.stack.forEach(s => { %><li><%= s %></li><% }) %>
+      </ul>
     </div>
-    <div class="text-center mt-6">
-      <a href="/feedback" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">
-        Beri Feedback
-      </a>
+    <span class="work-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+  </a>
+<% }) %>
     </div>
-  </section>
-  <script src="/js/feedback-display.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </div>
+</section>
 
+<!-- ===== Pengalaman ===== -->
+<section id="pengalaman" class="section about">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2>Pengalaman kerja</h2>
+      <p>4+ tahun di dukungan aplikasi enterprise, infrastruktur IT, implementasi sistem informasi, serta pengembangan web dan mobile.</p>
+    </div>
+    <div class="jobs">
+      <% jobs.forEach((j, i) => { %>
+        <article class="job<%= j.current ? ' current' : '' %>" data-reveal style="--d:<%= (i % 2) * 60 %>ms">
+          <div class="job-meta">
+            <span class="job-period"><%= j.period %></span>
+            <strong><%= j.org %></strong>
+            <span><%= j.place %></span>
+          </div>
+          <div>
+            <h3><%= j.role %></h3>
+            <ul class="bul">
+              <% j.points.forEach(p => { %><li><%= p %></li><% }) %>
+            </ul>
+          </div>
+        </article>
+      <% }) %>
+    </div>
 
-  
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <div class="section-head subhead" data-reveal>
+      <h2>Kompetensi teknis</h2>
+    </div>
+    <dl class="facts">
+      <% skills.forEach((k, i) => { %>
+        <div data-reveal style="--d:<%= (i % 3) * 60 %>ms"><dt><%= k[0] %></dt><dd><%= k[1] %></dd></div>
+      <% }) %>
+    </dl>
 
-  <!-- Inisialisasi Swiper dengan penyesuaian jumlah slide -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const slides = document.querySelectorAll('.myPortfolio .swiper-slide');
-      const slidesCount = slides.length;
+    <div class="section-head subhead" data-reveal>
+      <h2>Pendidikan, sertifikasi, dan bahasa</h2>
+    </div>
+    <dl class="facts">
+      <% edu.forEach((k, i) => { %>
+        <div data-reveal style="--d:<%= (i % 2) * 60 %>ms"><dt><%= k[0] %></dt><dd><%= k[1] %></dd></div>
+      <% }) %>
+    </dl>
+  </div>
+</section>
 
-      // Jika tidak ada slide, hentikan
-      if (slidesCount === 0) return;
+<!-- ===== Testimoni (diisi oleh /js/feedback-display.js) ===== -->
+<section id="testimoni" class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2>Testimoni User dan penilaian Kepuasan</h2>
+      <p>Penilaian dari rekan kerja dan klien yang pernah saya bantu.</p>
+    </div>
+    <div id="feedbackSummary" class="summary" hidden></div>
+    <div id="feedbackList" class="quotes">
+      <p class="empty">Memuat testimoni…</p>
+    </div>
+    <div class="section-cta" data-reveal>
+      <a href="/feedback" class="btn btn-ghost">Tulis penilaian</a>
+    </div>
+  </div>
+</section>
 
-      // Konfigurasi dinamis
-      const isFew = slidesCount < 3; // < 3 => gunakan mode numeric slidesPerView
-      const swiperOptions = {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: isFew ? 1 : 'auto',
-        coverflowEffect: {
-          rotate: isFew ? 18 : 30,
-          stretch: 0,
-          depth: 140,
-          modifier: 1,
-          slideShadows: true,
-        },
-        loop: slidesCount > 1, // loop hanya jika ada minimal 2 slide
-        autoplay: slidesCount > 1 ? {
-          delay: 3000,
-          disableOnInteraction: false
-        } : false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        breakpoints: {
-          640: { slidesPerView: Math.min(1, slidesCount) },
-          768: { slidesPerView: Math.min(2, slidesCount) },
-          1024: { slidesPerView: Math.min(3, slidesCount) }
-        }
-      };
+<!-- ===== Kontak ===== -->
+<section id="contact" class="section contact">
+  <div class="wrap contact-grid">
+    <div data-reveal>
+      <h2>Punya proyek atau butuh bantuan teknis?</h2>
+      <p class="lead">Kirim pesan lewat form ini, atau hubungi langsung lewat WhatsApp untuk respons yang lebih cepat.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:afiffudinm688@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> afiffudinm688@gmail.com</a></li>
+        <li><a href="https://wa.me/62895629273504" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/in/fyf-dev-b8b05a15a/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/afiffudin" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+        <li><a href="https://gitlab.com/afiffudin" target="_blank" rel="noopener"><i class="fab fa-gitlab" aria-hidden="true"></i> GitLab</a></li>
+      </ul>
+    </div>
 
-      // Buat swiper
-      const mySwiper = new Swiper('.myPortfolio', swiperOptions);
+    <form action="/contact" method="post" class="form" data-reveal style="--d:120ms">
+      <label class="field"><span>Nama</span>
+        <input required type="text" name="name" class="input" placeholder="Nama Anda" autocomplete="name" />
+      </label>
+      <label class="field"><span>Email</span>
+        <input required type="email" name="email" class="input" placeholder="email@domain.com" autocomplete="email" />
+      </label>
+      <label class="field"><span>Pesan</span>
+        <textarea required name="message" rows="5" class="input" placeholder="Ceritakan kebutuhan Anda"></textarea>
+      </label>
+      <div><button type="submit" class="btn btn-primary">Kirim pesan</button></div>
+    </form>
+  </div>
+</section>
 
-      // Jika cuma 1 slide, sembunyikan pagination (opsional)
-      if (slidesCount === 1) {
-        const pag = document.querySelector('.swiper-pagination');
-        if (pag) pag.style.display = 'none';
-      }
-    });
-  </script>
-</body>
-</html>
+<script src="/js/feedback-display.js"></script>

@@ -1,22 +1,33 @@
 <%
   const d = {
-    title: 'DevOps Engineer',
-    lead: 'Dalam arsitektur modern yang saya terapkan, Docker menjadi inti dari siklus hidup pengembangan aplikasi. Saya menggunakan pendekatan Containerization untuk memastikan aplikasi berjalan dengan konsisten di lingkungan pengembangan (Development), pengujian (Staging), hingga produksi (Production).',
-    stack: ['Laravel', 'Node.js', 'PostgreSQL', 'MySQL', 'SQL Server', 'Docker'],
-    cta: 'Konsultasi proyek',
-    pointsTitle: 'DevOps dan arsitektur container',
+    title: 'DevOps dan Deployment',
+    lead: 'Saya mengonfigurasi environment deployment berbasis Docker: aplikasi dikemas sebagai image, disimpan di GitLab Container Registry, lalu dijalankan di server AWS dan Alibaba Cloud dengan Caddy atau Nginx sebagai web server.',
+    stack: ['Docker', 'GitLab Registry', 'Caddy', 'Nginx', 'AWS', 'Alibaba Cloud', 'PostgreSQL', 'Prometheus', 'Grafana'],
+    cta: 'Konsultasi deployment',
+    pointsTitle: 'Yang saya kerjakan',
     points: [
-      { t: 'Isolated Environments', p: 'Mengemas kode, runtime, library, dan konfigurasi ke dalam satu Docker Image yang ringan. Hal ini menghilangkan masalah "it works on my machine" karena lingkungan sistem selalu identik di mana pun dijalankan.' },
-      { t: 'Microservices Orchestration', p: 'Memecah aplikasi kompleks menjadi layanan-layanan kecil (microservices) yang saling terhubung. Setiap layanan berjalan dalam containernya sendiri, sehingga lebih mudah dalam skalabilitas dan pemeliharaan.' },
-      { t: 'Efficient Deployment (CI/CD)', p: 'Mempercepat proses deployment dengan sistem Automated Build. Sekali klik, Docker image akan diperbarui dan siap dijalankan tanpa perlu konfigurasi ulang server dari nol.' },
-      { t: 'Resource Optimization', p: 'Berbeda dengan Virtual Machine tradisional, Docker berbagi kernel OS yang sama, sehingga penggunaan RAM dan CPU jauh lebih efisien dan hemat biaya server.' }
+      { t: 'Container dan registry', p: 'Aplikasi dikemas sebagai image Docker, disimpan di GitLab Container Registry, dan dijalankan sebagai container di server.' },
+      { t: 'Script deploy per layanan', p: 'Satu script bash untuk tiap layanan (API dan Vue): login ke registry, hentikan dan hapus container lama, pull image terbaru, lalu jalankan container baru lengkap dengan environment variable dan volume.' },
+      { t: 'Server cloud', p: 'Bekerja di server AWS untuk dev dan Alibaba Cloud ECS untuk production, lewat SSH dan Workbench.' },
+      { t: 'Web server dan database', p: 'Konfigurasi Caddy dan Nginx, serta koneksi aplikasi ke database PostgreSQL.' },
+      { t: 'Keandalan database', p: 'Optimasi query SQL, indexing, backup, dan rollback agar data aman dan performa terjaga.' },
+      { t: 'Pemantauan', p: 'Memantau kondisi jaringan dan server dengan Prometheus dan Grafana.' }
     ],
-    galleryTitle: 'Dokumentasi proyek DevOps',
+    galleryTitle: 'Dokumentasi deployment',
+    captioned: true,
     gallery: [
-      { src: '/images/docker1.png', alt: 'Menjalankan container dengan Docker di terminal' },
-      { src: '/images/devops1.jpg', alt: 'Dokumentasi DevOps 1' },
-      { src: '/images/devops2.jpg', alt: 'Dokumentasi DevOps 2' },
-      { src: '/images/devops3.jpg', alt: 'Dokumentasi DevOps 3' }
+      { src: '/images/docker-hrs-di-add-portfo-konfig-sh-di-dev-server-aws.png',
+        alt: 'Script bash deploy di dev server AWS',
+        caption: 'Script deploy di dev server AWS: login ke GitLab Container Registry, hentikan container lama, pull image terbaru, jalankan container baru.' },
+      { src: '/images/docker-hrs-add-portfo1-sudah-review.png',
+        alt: 'Daftar script deploy per layanan di dev server',
+        caption: 'Satu script deploy untuk setiap layanan (API dan Vue), masing-masing dengan folder log, di dev server.' },
+      { src: '/images/docker-hrs-di-add2-sudah-review.png',
+        alt: 'Hasil perintah docker ps di dev server',
+        caption: 'Hasil docker ps di dev server: container API Java berjalan dari image di GitLab Container Registry.' },
+      { src: '/images/Tampilan-Awal-Alibaba-Cloud.png',
+        alt: 'Alibaba Cloud ECS Workbench terhubung ke server production',
+        caption: 'Akses server production di Alibaba Cloud lewat ECS Workbench untuk deploy dan perbaikan aplikasi.' }
     ]
   };
 %>

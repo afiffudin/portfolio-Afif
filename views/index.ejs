@@ -2,42 +2,99 @@
   const works = [
     { href: '/portfolio/programming-mobile', img: '/images/Flutter1.png', alt: 'Tampilan aplikasi mobile Flutter',
       title: 'Programming Mobile',
-      text: 'Aplikasi Android dan iOS dengan Flutter, lengkap dengan koneksi ke database.',
-      stack: ['Flutter', 'Firebase', 'PostgreSQL', 'SQL Server'] },
+      text: 'Aplikasi mobile dengan Flutter, termasuk My Religi: aplikasi Al-Qur\'an digital dengan tafsir dan bookmark.',
+      stack: ['Flutter', 'Integrasi API'] },
     { href: '/portfolio/web', img: '/images/web1.png', alt: 'Tampilan website hasil pengembangan',
       title: 'Programmer Web',
-      text: 'Website dan backend dengan Laravel, Node.js, dan Flask (Python).',
-      stack: ['Laravel', 'Node.js', 'Flask', 'MySQL', 'PostgreSQL', 'SQL Server'] },
+      text: 'Dashboard dan aplikasi web dengan Vue.js, Node.js, PHP, dan Flask, termasuk integrasi API dan optimasi database.',
+      stack: ['Vue.js', 'Node.js', 'PHP', 'Flask', 'PostgreSQL', 'MySQL'] },
     { href: '/portfolio/devops', img: '/images/docker1.png', alt: 'Terminal Docker saat menjalankan container',
-      title: 'DevOps',
-      text: 'Container aplikasi, database, dan jaringan di dalam Docker.',
-      stack: ['Docker', 'Docker Compose'] },
+      title: 'DevOps dan Deployment',
+      text: 'Environment deployment berbasis Docker dengan GitLab Container Registry, Caddy dan Nginx, di server AWS dan Alibaba Cloud.',
+      stack: ['Docker', 'GitLab Registry', 'Caddy', 'Nginx', 'AWS', 'Alibaba Cloud'] },
     { href: '/portfolio/itsupport', img: '/images/IT-Support1.png', alt: 'Pemasangan server dan jaringan di lapangan',
-      title: 'IT Support & Networking',
-      text: 'Instalasi CCTV, infrastruktur server, dan jaringan untuk rumah sakit dan perusahaan.',
-      stack: ['CCTV', 'Server', 'Networking', 'SIMRS'] },
+      title: 'IT Support, Jaringan, dan SIMRS',
+      text: 'Implementasi SIMRS, dukungan IT, jaringan, dan CCTV di rumah sakit serta lingkungan operasional perusahaan.',
+      stack: ['SIMRS', 'MikroTik', 'Cisco', 'CCTV', 'Windows Server'] },
     { href: '/portfolio/4', img: '/images/Jasa_freelance1.png', alt: 'Proses troubleshoot dan deploy aplikasi ke hosting',
-      title: 'Jasa Teknis: Support & Deploy ke Hosting',
+      title: 'Jasa Teknis: Support dan Deploy ke Hosting',
       text: 'Troubleshoot dan deploy aplikasi web ke hosting, termasuk aplikasi Flask.',
-      stack: ['Flask (Python)', 'cPanel', 'Database'] }
+      stack: ['Flask (Python)', 'cPanel'] }
   ];
-  const stack = ['Flutter', 'Firebase', 'Laravel', 'Node.js', 'Flask', 'Docker', 'PostgreSQL', 'MySQL', 'SQL Server', 'Cisco', 'Mikrotik', 'CCTV'];
+  const stack = ['Flutter', 'Vue.js', 'Node.js', 'PHP', 'Python', 'Flask', 'Java', 'Docker', 'Nginx', 'Caddy', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'MikroTik', 'Cisco', 'Windows Server', 'Active Directory', 'AWS', 'Alibaba Cloud', 'Prometheus', 'Grafana', 'Kafka', 'GitLab'];
+
+  const jobs = [
+    { role: 'IT Support & Web Developer', org: 'PT. Ambil Gaji Duluan', place: 'Jakarta Pusat', period: 'Jan 2026 – Sekarang', current: true, points: [
+      'Memberikan dukungan operasional dan troubleshooting untuk aplikasi HRIS dan Earned Wage Access (EWA).',
+      'Mengembangkan dan mengintegrasikan komponen dashboard Vue.js untuk mendukung alur kerja HRIS.',
+      'Mengonfigurasi environment deployment aplikasi dengan Docker dan web server Caddy.',
+      'Menjaga keandalan dan performa database lewat optimasi query SQL, indexing, backup, dan rollback.',
+      'Menyelidiki masalah aplikasi, server, dan laporan pengguna, lalu mengoordinasikan penyelesaiannya.'
+    ] },
+    { role: 'Technical Support, Proyek CCTV (berbasis proyek)', org: 'PT. Sinergi Teknologi Internusa', place: 'Jakarta Barat', period: 'Sep 2025 – Des 2025', points: [
+      'Melakukan proof-of-concept (POC) di lokasi klien, termasuk instalasi CCTV dan validasi teknis.',
+      'Memberikan dukungan teknis selama dan sesudah implementasi POC.',
+      'Mengonfigurasi fitur AI kamera dan pengaturan perangkat sesuai kebutuhan klien.',
+      'Mengonfigurasi dan mendukung segmen jaringan khusus untuk deployment CCTV.'
+    ] },
+    { role: 'IT Implementation Specialist', org: 'PT. Daya Medika Pratama', place: 'Jakarta Pusat', period: 'Okt 2024 – Agu 2025', points: [
+      'Mengimplementasikan, menguji, dan mendokumentasikan Sistem Informasi Manajemen Rumah Sakit (SIMRS).',
+      'Memberikan dukungan teknis dan pendampingan aplikasi di lokasi selama implementasi dan operasional sistem.',
+      'Menyusun panduan pengguna dan SOP agar penggunaan sistem konsisten.',
+      'Memberi bimbingan dan pelatihan kepada staf operasional rumah sakit.'
+    ] },
+    { role: 'IT Support & QA Tester Specialist', org: 'PT. Dinamika Digital Semesta', place: 'Tangerang', period: 'Feb 2023 – Sep 2024', points: [
+      'Mendukung infrastruktur IT, CCTV, perangkat jaringan, hardware, dan software di lingkungan operasional.',
+      'Mengimplementasikan, menguji, dan mendokumentasikan SIMRS.',
+      'Mengelola database PostgreSQL: SQL join, optimasi query, indexing, dan backup.',
+      'Melakukan QA testing SIMRS, meninjau alur bisnis, mendokumentasikan temuan, dan mendukung perbaikan sistem.',
+      'Mengonfigurasi perangkat jaringan, IP addressing, access point, aturan firewall, dan sertifikat SSL.',
+      'Menarik kabel dan troubleshooting infrastruktur, termasuk terminasi RJ45 dan splicing fiber optic.',
+      'Mengonfigurasi container aplikasi Docker dan memantau kondisi jaringan serta server.'
+    ] },
+    { role: 'IT Staff & System Administrator', org: 'Rumah Sakit Juwita', place: 'Bekasi', period: 'Jan 2021 – Jan 2023', points: [
+      'Memelihara sistem internal rumah sakit dan infrastruktur Network Attached Storage (NAS).',
+      'Mengimplementasikan, menguji, dan mendokumentasikan SIMRS.',
+      'Mendukung keamanan server, pemantauan akses IP, dan pencegahan malware.',
+      'Memelihara dan troubleshooting server, PC desktop, laptop, dan printer.',
+      'Mengelola backup storage otomatis dan memberi dukungan teknis harian kepada pengguna rumah sakit.',
+      'Mengonfigurasi IP addressing, router, access point, dan kabel jaringan sesuai kebutuhan operasional.'
+    ] }
+  ];
+
+  const skills = [
+    ['IT Operations & Support', 'Troubleshooting hardware dan software, dukungan pengguna, pemeliharaan server, backup dan recovery.'],
+    ['Networking & Security', 'MikroTik, Cisco, LAN/WAN, VLAN, IP addressing, konfigurasi router dan AP, firewall, SSL, splicing fiber optic.'],
+    ['Systems & Infrastructure', 'Windows Server, Alibaba Cloud, AWS, Active Directory, NAS, Docker, Nginx, Caddy, dukungan environment deployment.'],
+    ['Database Administration', 'PostgreSQL, MySQL, MongoDB, Redis, SQL join, indexing, optimasi query, backup dan rollback.'],
+    ['Application & Development', 'JavaScript, Java, PHP, Vue.js, Node.js, Python, Flask, Flutter, pengembangan aplikasi web dan mobile, integrasi API.'],
+    ['Implementation & Quality', 'Implementasi SIMRS dan HRIS, QA testing, review proses bisnis, dokumentasi SOP, pelatihan pengguna.'],
+    ['Monitoring & Tools', 'Prometheus, Grafana, Kafka, Git, GitHub, GitLab.']
+  ];
+
+  const edu = [
+    ['S1 Sistem Informasi', 'Universitas Terbuka, 2022 – 2026'],
+    ['SMK Rekayasa Perangkat Lunak', 'SMK PGRI 1 Depok, 2016 – 2019'],
+    ['Sertifikasi', 'Software Engineer Competency Certification, PT. Sintekindo'],
+    ['Bahasa', 'Indonesia (bahasa ibu), Inggris (kemampuan kerja teknis)']
+  ];
 %>
 
 <!-- ===== Hero ===== -->
 <section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <h1>Muhamad Afifudin Yusup</h1>
-        <p class="hero-role">Developer dan IT specialist</p>
+        <h1 class="split"><span class="w"><span style="--i:0">Muhamad</span></span> <span class="w"><span style="--i:1">Afifudin</span></span> <span class="w"><span style="--i:2">Yusup</span></span></h1>
+        <p class="hero-role">Saya seorang <span class="typed" data-words='["IT Support &amp; Web Developer","IT Implementation Specialist","System Administrator","QA Tester"]'>IT Support &amp; Web Developer</span><span class="caret" aria-hidden="true"></span></p>
         <p class="hero-lead">
-          Saya membuat aplikasi mobile dan web, menjalankan sistem di Docker, serta memasang jaringan, server, dan CCTV
-          untuk rumah sakit dan perusahaan.
+          IT Systems &amp; Infrastructure Specialist di Depok dengan pengalaman 4+ tahun: mendukung aplikasi enterprise
+          (HRIS, SIMRS), mengelola infrastruktur dan jaringan, serta membangun solusi web dan mobile.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/6289638243059" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp</a>
-          <a class="btn btn-ghost" href="/CV_My Portofolio Afif_IT.pdf" download="CV_My Portofolio Afif_IT.pdf"><i class="fas fa-download" aria-hidden="true"></i> Unduh CV</a>
+          <a class="btn btn-primary btn-pulse" href="https://wa.me/62895629273504" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat via WhatsApp</a>
+          <a class="btn btn-ghost" href="/CV_Muhamad_Afifudin_IT.pdf" download><i class="fas fa-download" aria-hidden="true"></i> Unduh CV</a>
         </div>
         <div class="socials">
           <a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
@@ -55,28 +112,33 @@
         <div class="ports">
           <a class="port" href="/portfolio/programming-mobile">
             <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
-            <strong>Mobile</strong><span>Flutter, Firebase</span>
+            <strong>Mobile</strong><span>Flutter</span>
           </a>
           <a class="port" href="/portfolio/web">
             <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
-            <strong>Web</strong><span>Laravel, Node.js, Flask</span>
+            <strong>Web</strong><span>Vue.js, Node.js, PHP, Flask</span>
           </a>
           <a class="port" href="/portfolio/devops">
             <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
-            <strong>DevOps</strong><span>Docker</span>
+            <strong>DevOps</strong><span>Docker, Caddy, Nginx</span>
           </a>
           <a class="port" href="/portfolio/itsupport">
             <div class="port-top"><span class="socket" aria-hidden="true"></span><span class="led" aria-hidden="true"></span></div>
-            <strong>IT Support</strong><span>Jaringan, server, CCTV</span>
+            <strong>IT Support</strong><span>SIMRS, jaringan, CCTV</span>
           </a>
         </div>
       </nav>
     </div>
 
-    <div class="stack-strip">
-      <ul aria-label="Teknologi yang dipakai">
-        <% stack.forEach(s => { %><li><%= s %></li><% }) %>
-      </ul>
+    <div class="stack-strip" data-reveal>
+      <div class="marquee">
+        <ul aria-label="Teknologi yang dipakai">
+          <% stack.forEach(s => { %><li><%= s %></li><% }) %>
+        </ul>
+        <ul aria-hidden="true">
+          <% stack.forEach(s => { %><li><%= s %></li><% }) %>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -84,13 +146,13 @@
 <!-- ===== Keahlian / Portfolio ===== -->
 <section id="keahlian" class="section" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <h2>Keahlian dan proyek</h2>
       <p>Pilih salah satu untuk melihat screenshot dan detail pekerjaannya.</p>
     </div>
     <div class="works">
-      <% works.forEach(w => { %>
-        <a class="work" href="<%= w.href %>">
+      <% works.forEach((w, i) => { %>
+        <a class="work" href="<%= w.href %>" data-reveal style="--d:<%= i * 70 %>ms">
           <div class="work-img"><img src="<%= w.img %>" alt="<%= w.alt %>" loading="lazy" decoding="async" /></div>
           <div>
             <h3><%= w.title %></h3>
@@ -109,26 +171,44 @@
 <!-- ===== Pengalaman ===== -->
 <section id="pengalaman" class="section about">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Deskripsi profesional dan pengalaman</h2>
+    <div class="section-head" data-reveal>
+      <h2>Pengalaman kerja</h2>
+      <p>4+ tahun di dukungan aplikasi enterprise, infrastruktur IT, implementasi sistem informasi, serta pengembangan web dan mobile.</p>
+    </div>
+    <div class="jobs">
+      <% jobs.forEach((j, i) => { %>
+        <article class="job<%= j.current ? ' current' : '' %>" data-reveal style="--d:<%= (i % 2) * 60 %>ms">
+          <div class="job-meta">
+            <span class="job-period"><%= j.period %></span>
+            <strong><%= j.org %></strong>
+            <span><%= j.place %></span>
+          </div>
+          <div>
+            <h3><%= j.role %></h3>
+            <ul class="bul">
+              <% j.points.forEach(p => { %><li><%= p %></li><% }) %>
+            </ul>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+
+    <div class="section-head subhead" data-reveal>
+      <h2>Kompetensi teknis</h2>
     </div>
     <dl class="facts">
-      <div>
-        <dt>IT Support, CCTV, dan jaringan</dt>
-        <dd>Berpengalaman dalam IT Support, instalasi CCTV, dan networking (crimping RJ45, splicing fiber optic) serta konfigurasi menggunakan Cisco.</dd>
-      </div>
-      <div>
-        <dt>Aplikasi mobile</dt>
-        <dd>Pengembangan aplikasi mobile dengan Flutter.</dd>
-      </div>
-      <div>
-        <dt>Docker</dt>
-        <dd>Membuat container aplikasi, database, dan jaringan di dalam Docker.</dd>
-      </div>
-      <div>
-        <dt>SIMRS</dt>
-        <dd>Implementasi sistem dan pengujian sistem (SIMRS).</dd>
-      </div>
+      <% skills.forEach((k, i) => { %>
+        <div data-reveal style="--d:<%= (i % 3) * 60 %>ms"><dt><%= k[0] %></dt><dd><%= k[1] %></dd></div>
+      <% }) %>
+    </dl>
+
+    <div class="section-head subhead" data-reveal>
+      <h2>Pendidikan, sertifikasi, dan bahasa</h2>
+    </div>
+    <dl class="facts">
+      <% edu.forEach((k, i) => { %>
+        <div data-reveal style="--d:<%= (i % 2) * 60 %>ms"><dt><%= k[0] %></dt><dd><%= k[1] %></dd></div>
+      <% }) %>
     </dl>
   </div>
 </section>
@@ -136,14 +216,15 @@
 <!-- ===== Testimoni (diisi oleh /js/feedback-display.js) ===== -->
 <section id="testimoni" class="section">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <h2>Testimoni dan penilaian</h2>
       <p>Penilaian dari rekan kerja dan klien yang pernah saya bantu.</p>
     </div>
+    <div id="feedbackSummary" class="summary" hidden></div>
     <div id="feedbackList" class="quotes">
       <p class="empty">Memuat testimoni…</p>
     </div>
-    <div class="section-cta">
+    <div class="section-cta" data-reveal>
       <a href="/feedback" class="btn btn-ghost">Tulis penilaian</a>
     </div>
   </div>
@@ -152,10 +233,11 @@
 <!-- ===== Kontak ===== -->
 <section id="contact" class="section contact">
   <div class="wrap contact-grid">
-    <div>
+    <div data-reveal>
       <h2>Punya proyek atau butuh bantuan teknis?</h2>
       <p class="lead">Kirim pesan lewat form ini, atau hubungi langsung lewat WhatsApp untuk respons yang lebih cepat.</p>
       <ul class="contact-links">
+        <li><a href="mailto:afiffudinm688@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> afiffudinm688@gmail.com</a></li>
         <li><a href="https://wa.me/62895629273504" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
         <li><a href="https://www.linkedin.com/in/afif-dev-b8b05a15a" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
         <li><a href="https://github.com/afiffudin" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
@@ -163,7 +245,7 @@
       </ul>
     </div>
 
-    <form action="/contact" method="post" class="form">
+    <form action="/contact" method="post" class="form" data-reveal style="--d:120ms">
       <label class="field"><span>Nama</span>
         <input required type="text" name="name" class="input" placeholder="Nama Anda" autocomplete="name" />
       </label>

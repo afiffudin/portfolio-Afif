@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title><%= typeof title !== 'undefined' && title ? title + ' — ' : '' %>Muhamad Afifudin Yusup · Developer & IT Specialist</title>
-  <meta name="description" content="Portfolio Muhamad Afifudin Yusup: pengembangan aplikasi mobile (Flutter), web (Laravel, Node.js), DevOps (Docker), serta IT support, jaringan, dan CCTV." />
+  <title><%= typeof title !== 'undefined' && title ? title + ' — ' : '' %>Muhamad Afifudin Yusup · IT Systems &amp; Infrastructure Specialist</title>
+  <meta name="description" content="Portfolio Muhamad Afifudin Yusup, IT Systems &amp; Infrastructure Specialist: dukungan aplikasi enterprise (HRIS, SIMRS), infrastruktur dan jaringan, Docker, serta pengembangan web dan mobile." />
 
   <!-- Terapkan tema sebelum halaman tampil agar tidak berkedip -->
   <script>
+    document.documentElement.classList.add('js');   // <-- BARIS BARU
     (function () {
       try {
         var t = localStorage.getItem('theme');
@@ -34,5 +35,7 @@
   <%- include('partials/footer') %>
 
   <script src="/js/main.js"></script>
+  <script src="/js/fx.js"></script>
+</body>
 </body>
 </html>

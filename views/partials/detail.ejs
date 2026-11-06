@@ -3,20 +3,21 @@
 
   <div class="detail-head">
     <div>
-      <h1><%= d.title %></h1>
+      <% const esc = t => t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); %>
+      <h1 class="split"><%- d.title.split(' ').map((w, i) => '<span class="w"><span style="--i:' + i + '">' + esc(w) + '</span></span>').join(' ') %></h1>
     </div>
-    <div>
+    <div data-reveal style="--d:200ms">
       <p class="lead"><%= d.lead %></p>
       <% if (d.lead2) { %><p class="lead" style="margin-top:.8rem"><%= d.lead2 %></p><% } %>
       <ul class="chips">
         <% d.stack.forEach(s => { %><li><%= s %></li><% }) %>
       </ul>
-      <a class="btn btn-primary" href="https://wa.me/6289638243059" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <%= d.cta %></a>
+      <a class="btn btn-primary" href="" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <%= d.cta %></a>
     </div>
   </div>
 
   <% if (d.hero) { %>
-    <button class="shot" type="button" style="aspect-ratio:auto;max-height:34rem" data-full="<%= d.hero.src %>" data-alt="<%= d.hero.alt %>">
+    <button class="shot" type="button" data-reveal style="aspect-ratio:auto;max-height:34rem" data-full="<%= d.hero.src %>" data-alt="<%= d.hero.alt %>">
       <img src="<%= d.hero.src %>" alt="<%= d.hero.alt %>" style="max-height:34rem;object-fit:contain" decoding="async">
     </button>
   <% } %>
@@ -27,8 +28,8 @@
   <div class="wrap">
     <div class="section-head" style="margin-bottom:1.5rem"><h2><%= d.pointsTitle %></h2></div>
     <div class="points">
-      <% d.points.forEach(p => { %>
-        <div class="point"><h3><%= p.t %></h3><p><%= p.p %></p></div>
+      <% d.points.forEach((p, i) => { %>
+        <div class="point" data-reveal style="--d:<%= (i % 2) * 90 %>ms"><h3><%= p.t %></h3><p><%= p.p %></p></div>
       <% }) %>
     </div>
   </div>
@@ -39,11 +40,14 @@
 <section class="section" style="padding-top:clamp(1rem,3vw,2rem)">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:1.5rem"><h2><%= d.galleryTitle %></h2><p>Klik gambar untuk memperbesar.</p></div>
-    <div class="gallery<%= d.phones ? ' phones' : '' %>">
+    <div class="gallery<%= d.phones ? ' phones' : '' %><%= d.captioned ? ' cap' : '' %>">
       <% d.gallery.forEach((g, i) => { %>
-        <button class="shot" type="button" data-full="<%= g.src %>" data-alt="<%= g.alt %>">
-          <img src="<%= g.src %>" alt="<%= g.alt %>" loading="lazy" decoding="async">
-        </button>
+        <figure class="shotfig" data-reveal style="--d:<%= (i % 5) * 60 %>ms">
+          <button class="shot" type="button" data-full="<%= g.src %>" data-alt="<%= g.alt %>">
+            <img src="<%= g.src %>" alt="<%= g.alt %>" loading="lazy" decoding="async">
+          </button>
+          <% if (g.caption) { %><figcaption><%= g.caption %></figcaption><% } %>
+        </figure>
       <% }) %>
     </div>
   </div>

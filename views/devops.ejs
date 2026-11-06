@@ -1,6 +1,7 @@
 <%
   const d = {
     title: 'DevOps dan Deployment',
+    current: { org: 'PT. Ambil Gaji Duluan', period: 'Jan 2026 – Sekarang' },
     lead: 'Saya mengonfigurasi environment deployment berbasis Docker: aplikasi dikemas sebagai image, disimpan di GitLab Container Registry, lalu dijalankan di server AWS dan Alibaba Cloud dengan Caddy atau Nginx sebagai web server.',
     stack: ['Docker', 'GitLab Registry', 'Caddy', 'Nginx', 'AWS', 'Alibaba Cloud', 'PostgreSQL', 'Prometheus', 'Grafana'],
     cta: 'Konsultasi deployment',
@@ -16,16 +17,20 @@
     galleryTitle: 'Dokumentasi deployment',
     captioned: true,
     gallery: [
-      { src: '/images/docker-hrs-di-add-portfo-konfig-sh-di-dev-server-aws.png',
+      { current: true,
+        src: '/images/docker-hrs-di-add-portfo-konfig-sh-di-dev-server-aws.png',
         alt: 'Script bash deploy di dev server AWS',
         caption: 'Script deploy di dev server AWS: login ke GitLab Container Registry, hentikan container lama, pull image terbaru, jalankan container baru.' },
-      { src: '/images/docker-hrs-add-portfo1-sudah-review.png',
+      { current: true,
+        src: '/images/docker-hrs-add-portfo1-sudah-review.png',
         alt: 'Daftar script deploy per layanan di dev server',
         caption: 'Satu script deploy untuk setiap layanan (API dan Vue), masing-masing dengan folder log, di dev server.' },
-      { src: '/images/docker-hrs-di-add2-sudah-review.png',
+      { current: true,
+        src: '/images/docker-hrs-di-add2-sudah-review.png',
         alt: 'Hasil perintah docker ps di dev server',
         caption: 'Hasil docker ps di dev server: container API Java berjalan dari image di GitLab Container Registry.' },
-      { src: '/images/Tampilan-Awal-Alibaba-Cloud.png',
+      { current: true,
+        src: '/images/Tampilan-Awal-Alibaba-Cloud.png',
         alt: 'Alibaba Cloud ECS Workbench terhubung ke server production',
         caption: 'Akses server production di Alibaba Cloud lewat ECS Workbench untuk deploy dan perbaikan aplikasi.' }
     ]

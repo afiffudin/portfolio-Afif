@@ -1,15 +1,17 @@
 <%
   const shots = [
-    ['IT-Support1.png', 'Pemasangan server dan jaringan di lapangan'],
-    ['CCTV-BSI.png', 'POC CCTV BSI'],
-    ['POC-BERCA.jpeg', 'POC CCTV Berca Bandung'],
-    ['IT-Implementasi.jpeg', 'IT implementasi dan support RS Hermina'],
-    ['Wellous.png', 'Dokumentasi proyek Wellous'],
-    ['Pameran.jpeg', 'Pameran'],
-    ['Penitikan-CCTV.jpeg', 'Penentuan titik CCTV'],
-    ['poc-keramik.jpeg', 'POC CCTV pabrik keramik Karawang'],
-    ['joindomain-win-server.png', 'Join domain Windows Server']
+    ['IT-Support1.png', 'Pemasangan server dan jaringan di lapangan', 'image'],
+    ['CCTV-BSI.png', 'POC CCTV BSI', 'image'],
+    ['POC-BERCA.jpeg', 'POC CCTV Berca Bandung', 'image'],
+    ['IT-Implementasi.jpeg', 'IT implementasi dan support RS Hermina', 'image'],
+    ['Wellous.png', 'Dokumentasi proyek Wellous', 'image'],
+    ['jaringan.mp4', 'Video demonstrasi konfigurasi jaringan Cisco', 'video'], // Contoh video baru
+    ['Pameran.jpeg', 'Pameran', 'image'],
+    ['Penitikan-CCTV.jpeg', 'Penentuan titik CCTV', 'image'],
+    ['poc-keramik.jpeg', 'POC CCTV pabrik keramik Karawang', 'image'],
+    ['joindomain-win-server.png', 'Join domain Windows Server', 'image']
   ];
+
   const d = {
     title: 'IT Support dan SIMRS',
     lead: 'Menangani dukungan IT, jaringan, CCTV, dan implementasi Sistem Informasi Manajemen Rumah Sakit (SIMRS) di rumah sakit dan lingkungan operasional perusahaan.',
@@ -27,7 +29,11 @@
       { t: 'QA testing', p: 'Pengujian SIMRS, review alur bisnis, dan dokumentasi temuan untuk mendukung perbaikan sistem.' }
     ],
     galleryTitle: 'Dokumentasi proyek',
-    gallery: shots.map(s => ({ src: '/images/' + s[0], alt: s[1] }))
+    gallery: shots.map(s => ({ 
+      src: (s[2] === 'video' ? '/video/' : '/images/') + s[0], 
+      alt: s[1],
+      type: s[2] || 'image' 
+    }))
   };
 %>
 <%- include('partials/detail', { d }) %>

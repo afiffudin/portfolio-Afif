@@ -4,11 +4,11 @@
       title: 'Programming Mobile',
       text: 'Aplikasi mobile dengan Flutter, termasuk My Religi: aplikasi Al-Qur\'an digital dengan tafsir dan bookmark.',
       stack: ['Flutter', 'Integrasi API'] },
-    { href: '/portfolio/web', img: '/images/web1.png', alt: 'Tampilan website hasil pengembangan',
+    { href: '/portfolio/web', current: true, img: '/images/web1.png', alt: 'Tampilan website hasil pengembangan',
       title: 'Programmer Web',
       text: 'Dashboard dan aplikasi web dengan Vue.js, Node.js, PHP, dan Flask, termasuk integrasi API dan optimasi database.',
       stack: ['Java(VAADIN)', 'ASP.NET', 'Vue.js', 'Node.js', 'PHP', 'Flask', 'PostgreSQL', 'MySQL'] },
-    { href: '/portfolio/devops', img: '/images/docker1.png', alt: 'Terminal Docker saat menjalankan container',
+    { href: '/portfolio/devops', current: true, img: '/images/docker1.png', alt: 'Terminal Docker saat menjalankan container',
       title: 'DevOps dan Deployment',
       text: 'Environment deployment berbasis Docker dengan GitLab Container Registry, Caddy dan Nginx, di server AWS dan Alibaba Cloud.',
       stack: ['Docker', 'GitLab Registry', 'Caddy', 'Nginx', 'AWS', 'Alibaba Cloud'] },
@@ -152,18 +152,19 @@
     </div>
     <div class="works">
       <% works.forEach((w, i) => { %>
-        <a class="work" href="<%= w.href %>" data-reveal style="--d:<%= i * 70 %>ms">
-          <div class="work-img"><img src="<%= w.img %>" alt="<%= w.alt %>" loading="lazy" decoding="async" /></div>
-          <div>
-            <h3><%= w.title %></h3>
-            <p><%= w.text %></p>
-            <ul class="chips">
-              <% w.stack.forEach(s => { %><li><%= s %></li><% }) %>
-            </ul>
-          </div>
-          <span class="work-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-        </a>
-      <% }) %>
+  <a class="work<%= w.current ? ' is-current' : '' %>" href="<%= w.href %>" data-reveal style="--d:<%= i * 70 %>ms">
+    <div class="work-img"><img src="<%= w.img %>" alt="<%= w.alt %>" loading="lazy" decoding="async" /></div>
+    <div>
+      <% if (w.current) { %><p class="now work-now">Pekerjaan saat ini</p><% } %>
+      <h3><%= w.title %></h3>
+      <p><%= w.text %></p>
+      <ul class="chips">
+        <% w.stack.forEach(s => { %><li><%= s %></li><% }) %>
+      </ul>
+    </div>
+    <span class="work-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+  </a>
+<% }) %>
     </div>
   </div>
 </section>

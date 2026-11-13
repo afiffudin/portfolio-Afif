@@ -1,0 +1,39 @@
+<%
+  const shots = [
+    ['IT-Support1.png', 'Pemasangan server dan jaringan di lapangan', 'image'],
+    ['CCTV-BSI.png', 'POC CCTV BSI', 'image'],
+    ['POC-BERCA.jpeg', 'POC CCTV Berca Bandung', 'image'],
+    ['IT-Implementasi.jpeg', 'IT implementasi dan support RS Hermina', 'image'],
+    ['Wellous.png', 'Dokumentasi proyek Wellous', 'image'],
+    ['jaringan.mp4', 'Video demonstrasi konfigurasi jaringan Cisco', 'video'], // Contoh video baru
+    ['Pameran.jpeg', 'Pameran', 'image'],
+    ['Penitikan-CCTV.jpeg', 'Penentuan titik CCTV', 'image'],
+    ['poc-keramik.jpeg', 'POC CCTV pabrik keramik Karawang', 'image'],
+    ['joindomain-win-server.png', 'Join domain Windows Server', 'image']
+  ];
+
+  const d = {
+    title: 'IT Support dan SIMRS',
+    lead: 'Menangani dukungan IT, jaringan, CCTV, dan implementasi Sistem Informasi Manajemen Rumah Sakit (SIMRS) di rumah sakit dan lingkungan operasional perusahaan.',
+    lead2: 'Fokus saya pada operasional IT yang andal, troubleshooting yang terstruktur, dan perbaikan sistem yang praktis.',
+    stack: ['POC CCTV BSI', 'IT Support RS. Anak Negri', 'POC CCTV Berca Bandung', 'IT Implementasi & Support RS. Hermina', 'POC CCTV Pabrik Keramik Karawang', 'Join Domain Win Server'],
+    cta: 'Konsultasi proyek',
+    pointsTitle: 'Lingkup pekerjaan',
+    points: [
+      { t: 'Implementasi SIMRS', p: 'Implementasi, pengujian, dan dokumentasi SIMRS, termasuk pendampingan di lokasi, panduan pengguna, SOP, dan pelatihan staf rumah sakit.' },
+      { t: 'Jaringan dan keamanan', p: 'Konfigurasi MikroTik dan Cisco, LAN/WAN, VLAN, IP addressing, router dan access point, aturan firewall, serta sertifikat SSL.' },
+      { t: 'Kabel dan fiber optic', p: 'Terminasi RJ45, splicing fiber optic, dan troubleshooting infrastruktur kabel.' },
+      { t: 'Server dan storage', p: 'Pemeliharaan server, Windows Server, Active Directory, NAS, serta backup otomatis dan recovery.' },
+      { t: 'Sistem keamanan CCTV', p: 'POC dan instalasi CCTV, konfigurasi fitur AI kamera, dan segmen jaringan khusus untuk CCTV.' },
+      { t: 'Troubleshooting dan dukungan pengguna', p: 'Perbaikan hardware dan software (server, PC, laptop, printer), dukungan harian, pemantauan akses IP, dan pencegahan malware.' },
+      { t: 'QA testing', p: 'Pengujian SIMRS, review alur bisnis, dan dokumentasi temuan untuk mendukung perbaikan sistem.' }
+    ],
+    galleryTitle: 'Dokumentasi proyek',
+    gallery: shots.map(s => ({ 
+      src: (s[2] === 'video' ? '/video/' : '/images/') + s[0], 
+      alt: s[1],
+      type: s[2] || 'image' 
+    }))
+  };
+%>
+<%- include('partials/detail', { d }) %>

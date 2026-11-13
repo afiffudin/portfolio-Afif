@@ -1,0 +1,84 @@
+<%
+  const esc = t => t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const url = s => encodeURI(s); // aman untuk nama file yang mengandung spasi
+  const waLink = d.ctaHref || 'https://wa.me/62895629273504';
+%>
+<section class="wrap">
+  <a href="/#keahlian" class="back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke portfolio</a>
+
+  <div class="detail-head">
+    <div>
+      <% if (d.current) { %>
+        <p class="now now-lg" data-reveal>
+          Pekerjaan saat ini · <%= d.current.org %> · <%= d.current.period %>
+        </p>
+      <% } %>
+      <h1 class="split"><%- d.title.split(' ').map((w, i) => '<span class="w"><span style="--i:' + i + '">' + esc(w) + '</span></span>').join(' ') %></h1>
+    </div>
+    <div data-reveal style="--d:200ms">
+      <p class="lead"><%= d.lead %></p>
+      <% if (d.lead2) { %><p class="lead" style="margin-top:.8rem"><%= d.lead2 %></p><% } %>
+      <ul class="chips">
+        <% d.stack.forEach(s => { %><li><%= s %></li><% }) %>
+      </ul>
+      <a class="btn btn-primary" href="<%= waLink %>" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <%= d.cta %></a>
+    </div>
+  </div>
+
+  <% if (d.hero) { %>
+    <div class="herofig<%= d.hero.current ? ' is-current' : '' %>" data-reveal>
+      <% if (d.hero.current) { %><span class="now tag-now">Aktif</span><% } %>
+      <button class="shot" type="button" style="aspect-ratio:auto;max-height:34rem" data-full="<%= url(d.hero.src) %>" data-alt="<%= d.hero.alt %>">
+        <img src="<%= url(d.hero.src) %>" alt="<%= d.hero.alt %>" style="max-height:34rem;object-fit:contain" decoding="async">
+      </button>
+    </div>
+  <% } %>
+</section>
+
+<% if (d.points && d.points.length) { %>
+<section class="section" style="padding-block:clamp(2.5rem,5vw,4rem)">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem"><h2><%= d.pointsTitle %></h2></div>
+    <div class="points">
+      <% d.points.forEach((p, i) => { %>
+        <div class="point" data-reveal style="--d:<%= (i % 2) * 90 %>ms"><h3><%= p.t %></h3><p><%= p.p %></p></div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (d.gallery && d.gallery.length) { %>
+<section class="section" style="padding-top:clamp(1rem,3vw,2rem)">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <h2><%= d.galleryTitle %></h2>
+      <p>Klik gambar untuk memperbesar.</p>
+    </div>
+    <div class="gallery<%= d.phones ? ' phones' : '' %><%= d.captioned ? ' cap' : '' %>">
+      <% d.gallery.forEach((g, i) => { %>
+        <figure class="shotfig<%= g.current ? ' is-current' : '' %>" data-reveal style="--d:<%= (i % 5) * 60 %>ms">
+          <% if (g.current) { %><span class="now tag-now">Aktif</span><% } %>
+          <% if (g.type === 'video') { %>
+            <div class="shot video-wrapper" style="background:#000; border-radius:8px; overflow:hidden;">
+              <video src="<%= url(g.src) %>" controls width="100%" preload="metadata" style="display:block; max-height:20rem; width:100%; object-fit:contain;">
+                Browser Anda tidak mendukung tag video.
+              </video>
+            </div>
+          <% } else { %>
+            <button class="shot" type="button" data-full="<%= url(g.src) %>" data-alt="<%= g.alt %>">
+              <img src="<%= url(g.src) %>" alt="<%= g.alt %>" loading="lazy" decoding="async">
+            </button>
+          <% } %>
+          <% if (g.alt || g.caption) { %><figcaption><%= g.caption || g.alt %></figcaption><% } %>
+        </figure>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<dialog id="lightbox" class="lightbox" aria-label="Pratinjau gambar">
+  <button class="icon-btn" type="button" data-close aria-label="Tutup pratinjau"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+  <img alt="" />
+</dialog>

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Portfolio - Uda Yusuf' });
+  res.render('index', { title: 'Portfolio -' });
 });
 router.get('/feedback', (req, res) => {
   res.render('feedback'); // render views/feedback.ejs

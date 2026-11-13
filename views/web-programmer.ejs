@@ -1,0 +1,27 @@
+<%
+  const d = {
+    title: 'Web Developer',
+    current: { org: 'PT. Ambil Gaji Duluan', period: 'Jan 2026 – Sekarang' },
+    lead: 'Mengembangkan dashboard dan aplikasi web dengan Vue.js, Node.js, PHP, dan Python (Flask), termasuk integrasi API dan pengelolaan database.',
+    stack: ['Vue.js', 'Node.js', 'PHP', 'Python', 'Flask', 'JavaScript', 'PostgreSQL', 'MySQL'],
+    cta: 'Konsultasi proyek',
+    // hero: { src: '/images/web1.png', alt: 'Website company profile hasil pengembangan' },
+    pointsTitle: 'Proyek dan kemampuan',
+    points: [
+      { t: 'Dashboard HRIS dengan Vue.js', p: 'Mengembangkan dan mengintegrasikan komponen dashboard Vue.js untuk mendukung alur kerja HRIS di PT. Ambil Gaji Duluan.' },
+      { t: 'Kelontong Shop / Digital POS', p: 'Mengerjakan proyek aplikasi e-commerce dan POS untuk toko kelontong.' },
+      { t: 'Chatbot Customer Support E-Commerce', p: 'Mengembangkan konsep chatbot berbasis web untuk pertanyaan pelanggan, terintegrasi dengan WhatsApp Admin.' },
+      { t: 'Database dan performa', p: 'Optimasi query SQL, indexing, backup, dan rollback pada PostgreSQL dan MySQL.' }
+    ],
+    galleryTitle: 'Dokumentasi proyek web',
+    gallery: [
+      { current: true, src: '/images/sekarang/kerjaan-sekarang.png',    alt: 'Tampilan Dashboard HRIS APP' },
+      { current: true, src: '/images/sekarang/kerjaan-sekarang1.png',   alt: 'Swagger API HRIS' },
+      { current: true, src: '/images/sekarang/kerjaan-sekarang 2.png',  alt: 'Tampilan Daily Attendance HRIS' },
+      { current: true, src: '/images/sekarang/kerjaan-sekarang 3.png',  alt: 'Tampilan Working Calendar HRIS' },
+      { current: true, src: '/images/sekarang/kerjaan-sekarang 4.png',  alt: 'Database HRIS (PostgreSQL)' },
+      { current: true, src: '/images/sekarang/kerjaan-sekarang 5.png',  alt: 'Tampilan Working Type HRIS' }
+    ]
+  };
+%>
+<%- include('partials/detail', { d }) %>
